@@ -15,11 +15,11 @@ include "includes/config.php";
     <header>
         <div class="logo">
             <h1>Pet Clinic</h1>
-            <button><a href = "Create4.php"> <h4>Add Service</h4>  </a></button>
         </div>
+        <button><a href = "Create4.php"> <h4>Add Service</h4>  </a></button>
         <nav>
             <ul>
-            <button> <a href = "index.php"><h4>Home</h4></a></button>
+                <button> <a href = "index.php"><h4>Home</h4></a></button>
                 <button> <a href = "pets.php"><h4>Pets</h4></a></button>
                 <button><a href = "customer.php"><h4>Customers</h4></a></button>
                 <button><a href = "employee.php"><h4>Employee</h4></a></button>
