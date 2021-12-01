@@ -16,9 +16,7 @@ include "includes/config.php";
         <div class="logo">
             <h1>Pet Clinic</h1>
         </div>
-        <button><a href="Create2.php">
-         <h4>Register</h4>
-       </a></button>
+        <button><a href = "Create2.php"> <h4>Add Employee</h4>  </a></button>
         <nav>
             <ul>
                 <button> <a href = "index.php"><li>Home</li></a></button>
