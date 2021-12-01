@@ -18,11 +18,11 @@ include "includes/config.php";
         </div>
         <nav>
             <ul>
-                <button> <a href = "index.php"><li>Home</li></a></button>
-                <button> <a href = "pets.php"><li>Pets</li></a></button>
-                <button><a href = "customer.php"><li>Customers</li></a></button>
-                <button><a href = "employee.php"><li>Employee</li></a></button>
-                <button><a href = "service.php"><li>Service</li></a></button>
+            <button> <a href = "index.php"><h4>Home</h4></a></button>
+                <button> <a href = "pets.php"><h4>Pets</h4></a></button>
+                <button><a href = "customer.php"><h4>Customers</h4></a></button>
+                <button><a href = "employee.php"><h4>Employee</h4></a></button>
+                <button><a href = "service.php"><h4>Service</h4></a></button>
             </ul>
         </nav>
         <button><?php echo '<a href="logout.php"> Logout</a>';?></button>
