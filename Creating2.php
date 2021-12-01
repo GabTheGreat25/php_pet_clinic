@@ -117,10 +117,10 @@ if(empty($errors)){
 
  if ($result) {
   echo '<div style="font-size:50;color:blue">CUSTOMER SAVED! </div>';
-  echo "<td align='center'><a href='login_page.php' role='button'> <h4>Go Back</h4></a></td>";
+  echo "<td align='center'><a href='employee.php' role='button'> <h4>Go Back</h4></a></td>";
  }
  else{
- //echo mysqli_error();
+ echo mysqli_error();
  }
 }
 else{
@@ -132,7 +132,7 @@ echo " - $msg<br />\n";
 }
 else{
      echo '<div style="font-size:50;color:blue">YOU CANCEL THE QUERRY! </div>';
-     echo "<td align='center'><a href='login_page.php' role='button'> <h4>Back to Home Page</h4></a></td>";
+     echo "<td align='center'><a href='index.php' role='button'> <h4>Back to Home Page</h4></a></td>";
 }
 ?>
 </body>

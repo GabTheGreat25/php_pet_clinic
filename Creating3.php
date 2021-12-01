@@ -109,7 +109,7 @@ if ($uploadOk == 0) {
     echo "<td align='center'><a href='pets.php' role='button'> <h4>Go Back</h4></a></td>";
  }
  else{
- echo mysqli_error();
+echo mysqli_error();
  }
 }
 else{
