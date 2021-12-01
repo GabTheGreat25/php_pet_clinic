@@ -11,7 +11,7 @@ li, a, button {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 15px;
-    color: white;
+    color: #596275;
     text-decoration: none;
 }
 
@@ -20,7 +20,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #05c46b;
+    background-color: #4b4b4b;
 }
 
 .logo {

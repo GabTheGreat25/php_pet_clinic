@@ -8,7 +8,7 @@
     <title>Navbar 1</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
     <?php
 include "includes/config.php";
 ?>
