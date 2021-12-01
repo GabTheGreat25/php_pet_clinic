@@ -8,14 +8,16 @@
 <body>
 
 <?php
+session_start();
 if (!isset($_SESSION['Employee_id'])){
     include "includes/config.php";
     require ('includes/login_functions.inc.php');
  echo "<p>please log in to edit this user</p>";
+ echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
  //redirect_user();
 }
 //print_r($_POST);
-elseif ($_POST['submit'] ==  "Save"){
+else{
     include "includes/config.php";
  $Name = $_POST['Name'];
  $Age = $_POST['Age'];
@@ -71,9 +73,6 @@ elseif (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
  else {
      echo "Sorry, there was an error uploading your file.";
      }
-}
-else{
-	 echo '<div style="font-size:50;color:blue">YOU CANCEL THE UPDATE! </div>';
 }
 ?>
 <a href = "index.php" role = "button"> <h4>Back</h4>  </a></i>

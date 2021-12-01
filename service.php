@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>	<?php echo $page_title; 
+    <title>	<?php
 	session_start();
 	?></title>
       <meta charset="UTF-8">

@@ -14,4 +14,3 @@ echo "<h1>Logged Out!</h1>
 session_destroy();
 }
 ?>
-

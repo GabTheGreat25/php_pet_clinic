@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <title>
-	<?php echo $page_title; 
-	session_start();
+	<?php
+	 if(isset($_SESSION)) { 
+        session_start(); 
+      } 
 	?></title>
       <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,4 +38,3 @@ echo '<a href="login.php"><h3>Login</h3></a>';
     </header>
 </body>
 </html>
-<!--<h1>Welcome to ACME Pet Clinic and Grooming Services Web Application</h1>

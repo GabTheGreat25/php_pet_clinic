@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>	<?php echo $page_title; 
+    <title>	<?php
 	session_start();
 	?></title>
       <meta charset="UTF-8">
@@ -42,23 +42,23 @@ echo '<a href="login.php"><h3>Login</h3></a>';
         <th>Age</th>
         <th>Sex</th>
         <th>Breed</th>
-        <th>Customer_id</th>
+        <th>Owner</th>
         <th>Pet_pic </th>
         </tr>
     </thead>
  <tbody>
 <?php 
-$result = mysqli_query( $conn,"SELECT * FROM pet ORDER BY Pet_id ASC" );
+$result = mysqli_query( $conn,"SELECT * FROM pet p INNER JOIN customer c ON p.Cust_id = c.Cust_id ORDER BY Pet_id ASC" );
 $num_rows = mysqli_num_rows( $result );
 echo "There are currently $num_rows rows in the table<P>";
-  while ($row = mysqli_fetch_array($result)) {  
+  while ($row = mysqli_fetch_assoc($result)) {  
         echo "<tr>\n";
         echo "<td>".$row['Pet_id']."</td>";
         echo "<td>".$row['Name']."</td>";
         echo "<td>".$row['Age']."</td>";
         echo "<td>".$row['Sex']."</td>";
         echo "<td>".$row['Breed']."</td>";
-        echo "<td>".$row['Cust_id']."</td>";
+        echo '<td>'.$row['Last_name'].','.$row['First_name'].'</td>';
         echo "<td><img width = '100px' height = '100px' src =".$row['Pet_pic']."></td>";
         echo "<td align='center'><a href='edit3.php?Pet_id=".$row['Pet_id']."' role='button'> <h4>Update</h4></a></td>";
        echo "<td align='center'><a href='delete3.php?Pet_id=".$row['Pet_id']."' role='button'> <h4>Delete</h4></a></td>";

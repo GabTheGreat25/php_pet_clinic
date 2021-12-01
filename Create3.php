@@ -57,7 +57,6 @@ echo '<div style="font-size:25;color:blue">Create a Pet. </div>';
     echo '<option value='.$rows['Cust_id'].'>'.$rows['Last_name'].','.$rows['First_name'].'</option>';
     } 
   ?>
-  ?>
 </select>
 </div>
 

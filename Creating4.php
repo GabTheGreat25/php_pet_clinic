@@ -15,7 +15,7 @@ if (!isset($_SESSION['Employee_id'])){
 }
 
 //print_r($_POST);
-elseif ($_POST['submit'] ==  "Save"){
+else{
     $errors = array();
     include "includes/config.php";
 
@@ -98,10 +98,6 @@ else{
 echo " - $msg<br />\n";
 }
 }
-}
-else{
-     echo '<div style="font-size:50;color:blue">YOU CANCEL THE QUERRY! </div>';
-       echo "<td align='center'><a href='index.php' role='button'> <h4>Back to Home Page</h4></a></td>";
 }
 ?>
 </body>

@@ -7,6 +7,5 @@ redirect_user();
 }
 $page_title = 'Logged In!';
 include ('index.php');
-echo "<h1>Logged In!</h1>
-<p>You are now logged in, {$_SESSION['First_name']}!</p>";
+echo "<h1>Logged In!</h1> <p>You are now logged in, {$_SESSION['First_name']}!</p>";
 ?>
