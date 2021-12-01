@@ -8,9 +8,15 @@
 <body>
 
 <?php
-include "includes/config.php";
+if (!isset($_SESSION['Employee_id'])){
+    include "includes/config.php";
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to edit this user</p>";
+ //redirect_user();
+}
 //print_r($_POST);
-if ($_POST['submit'] ==  "Save"){
+elseif ($_POST['submit'] ==  "Save"){
+    include "includes/config.php";
  $Name = $_POST['Name'];
  $Age = $_POST['Age'];
  $Sex = $_POST['Sex'];

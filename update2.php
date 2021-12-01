@@ -2,15 +2,22 @@
 <html>
 <head>
 	<title>
-		Updating Customer
+		Updating Employee
 	</title>
 </head>
 <body>
 
 <?php
-include "includes/config.php";
+session_start();
+if (!isset($_SESSION['Employee_id'])){
+    include "includes/config.php";
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to edit this user</p>";
+ //redirect_user();
+}
 //print_r($_POST);
-if ($_POST['submit'] ==  "Save"){
+elseif ($_POST['submit'] ==  "Save"){
+    include "includes/config.php";
  $fname = $_POST['fname'];
  $lname = $_POST['lname'];
  $phone = $_POST['phone'];

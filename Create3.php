@@ -61,7 +61,6 @@ echo '<div style="font-size:25;color:blue">Create a Pet. </div>';
 </select>
 </div>
 
-
 <div>
 	<h3><button type="submit" name="submit" value="Save">Save</button></h3>
 	<h3><button type="submit" name="submit" value="Back">Cancel</button></h3>

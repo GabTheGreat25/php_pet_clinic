@@ -9,7 +9,7 @@
 include "includes/config.php";
 $result = mysqli_query( $conn,"SELECT * FROM customer where Cust_id = ".   $_GET['Cust_id']);
 $row = mysqli_fetch_array($result);
-print_r($row);
+//print_r($row);
 ?>
 
 <div class="container">

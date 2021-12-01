@@ -6,10 +6,18 @@
 <body>
 
 <?php
-include "includes/config.php";
+session_start();
+if (!isset($_SESSION['Employee_id'])){
+    include "includes/config.php";
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to create a user</p>";
+ echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
+}
+
 //print_r($_POST);
-$errors = array(); 
-if ($_POST['submit'] ==  "Save"){
+elseif ($_POST['submit'] ==  "Save"){
+    $errors = array();
+    include "includes/config.php";
 
     if (isset($_POST['submit'])) {
     if (empty($_POST['fname'])) {

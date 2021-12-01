@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>	<?php echo $page_title; 
+	session_start();
+	?></title>
       <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar 1</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
@@ -26,7 +27,12 @@ include "includes/config.php";
                 <button><a href = "service.php"><h4>Service</h4></a></button>
             </ul>
         </nav>
-        <button>Logout</button>
+        <button><?php if ( (isset($_SESSION['Employee_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php') ) {
+echo '<a href="logout.php"><h3>Logout</h3></a>';
+} else {
+echo '<a href="login.php"><h3>Login</h3></a>';
+}
+?></button>
     </header>
 <table >
     <thead>

@@ -9,7 +9,7 @@
 
 <?php
 include "includes/config.php";
-$sql = "DELETE FROM pet WHERE pet_id = ". $_GET['pet_id'];
+$sql = "DELETE FROM pet WHERE Pet_id = ". $_GET['Pet_id'];
 echo $sql;
 $result = mysqli_query( $conn,$sql);
 if ($result == true) {
