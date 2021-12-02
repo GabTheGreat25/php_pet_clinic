@@ -25,6 +25,7 @@ include "includes/config.php";
                 <button><a href = "customer.php"><h4>Customers</h4></a></button>
                 <button><a href = "employee.php"><h4>Employee</h4></a></button>
                 <button><a href = "service.php"><h4>Service</h4></a></button>
+                <button><a href = "consultationz.php"><h4>consultation</h4></a></button>
             </ul>
         </nav>
         <button><?php if ( (isset($_SESSION['Employee_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php') ) {

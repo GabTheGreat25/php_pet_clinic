@@ -20,11 +20,12 @@ include "includes/config.php";
         <button><a href = "Create4.php"> <h4>Add Service</h4>  </a></button>
         <nav>
             <ul>
-                <button> <a href = "index.php"><h4>Home</h4></a></button>
+            <button> <a href = "index.php"><h4>Home</h4></a></button>
                 <button> <a href = "pets.php"><h4>Pets</h4></a></button>
                 <button><a href = "customer.php"><h4>Customers</h4></a></button>
                 <button><a href = "employee.php"><h4>Employee</h4></a></button>
                 <button><a href = "service.php"><h4>Service</h4></a></button>
+                <button><a href = "consultationz.php"><h4>consultation</h4></a></button>
             </ul>
         </nav>
         <button><?php if ( (isset($_SESSION['Employee_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php') ) {
@@ -32,8 +33,10 @@ echo '<a href="logout.php"><h3>Logout</h3></a>';
 } else {
 echo '<a href="login.php"><h3>Login</h3></a>';
 }
-?></button>
+?>
+</button>
     </header>
+
     <table >
     <thead>
       <tr>
@@ -67,6 +70,7 @@ echo "There are currently $num_rows rows in the table<P>";
 }
 }
  //mysqli_free_result($result);
+ 
  mysqli_close( $conn );
  ?>
 </tbody>
