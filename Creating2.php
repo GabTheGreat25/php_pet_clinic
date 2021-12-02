@@ -6,16 +6,8 @@
 <body>
 
 <?php
-session_start();
-if (!isset($_SESSION['Employee_id'])){
-    include "includes/config.php";
-    require ('includes/login_functions.inc.php');
- echo "<p>please log in to create a user</p>";
- echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
-}
-
 //print_r($_POST);
-else{
+if ($_POST['submit'] ==  "Save"){
     $errors = array();
     include "includes/config.php";
 
@@ -137,6 +129,10 @@ else{
 echo " - $msg<br />\n";
 }
 }
+}
+else{
+    echo '<div style="font-size:50;color:blue">YOU CANCEL THE REGISTRATION FORM! </div>';
+    echo "<td align='center'><a href='login_page.php' role='button'> <h4>Back to Log In Page</h4></a></td>";
 }
 ?>
 </body>

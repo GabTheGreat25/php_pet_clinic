@@ -27,6 +27,7 @@
      <p>Email Address: <input type="text" name="Email" placeholder="Username"></p>
      <p>Password: <input type="password" name="Password" placeholder="Password"></p>
      <input type="submit" name="submit" value="Login">
+     <a href="Create2.php" class="button">Sign Up Here!</a>
    </form>
  </body>
 

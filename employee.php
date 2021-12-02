@@ -17,7 +17,6 @@ include "includes/config.php";
         <div class="logo">
             <h1>Pet Clinic</h1>
         </div>
-        <button><a href = "Create2.php"> <h4>Add Employee</h4>  </a></button>
         <nav>
             <ul>
                 <button> <a href = "index.php"><h4>Home</h4></a></button>
@@ -47,6 +46,12 @@ echo '<a href="login.php"><h3>Login</h3></a>';
     </thead>
  <tbody>
 <?php 
+if (!isset($_SESSION['Employee_id'])){
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to view employees.</p>";
+ //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
+}
+else{
 $result = mysqli_query( $conn,"SELECT * FROM employee ORDER BY Employee_id ASC" );
 $num_rows = mysqli_num_rows( $result );
 echo "There are currently $num_rows rows in the table<P>";
@@ -62,7 +67,8 @@ echo "There are currently $num_rows rows in the table<P>";
        echo "<td align='center'><a href='delete2.php?Employee_id=".$row['Employee_id']."' role='button'> <h4>Delete</h4></a></td>";
         echo "</tr>\n"; 
 }
- mysqli_free_result($result);
+}
+ //mysqli_free_result($result);
  mysqli_close( $conn );
  ?>
 </tbody>

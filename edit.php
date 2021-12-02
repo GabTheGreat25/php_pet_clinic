@@ -45,17 +45,19 @@ echo '<div style="font-size:25;color:blue">Update a Customer. </div>';
     <input type='file' id='fileToUpload' name='fileToUpload'>
   </div>
 
-<div>
-	   <h3><button type="submit" name="submit" value="Save">Save</button></h3>
-    <h3><button type="submit" name="submit" value="Back">Cancel</button></h3>
-</div>
-
 <div class="form-group"> 
     <label for="imgpath" >Current Image: </label>
     <?php 
     echo "<img border=\"1\" src=\"".$row['Cust_pic']."\" width=\"300\" alt=\"Customer Picture\" height=\"300\">" 
  	 ?>;
  </div>
+
+ <div>
+	   <h3><button type="submit" name="submit" value="Save">Save</button></h3>
+     <?php
+	echo "<td align='center'><a href='customer.php' role='button'> <h4>Go Back</h4></a></td>";
+	?>
+</div>
 
 </div>
 	</form>

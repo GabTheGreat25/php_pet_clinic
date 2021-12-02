@@ -62,7 +62,9 @@ echo '<div style="font-size:25;color:blue">Create a Pet. </div>';
 
 <div>
 	<h3><button type="submit" name="submit" value="Save">Save</button></h3>
-	<h3><button type="submit" name="submit" value="Back">Cancel</button></h3>
+  <?php
+	echo "<td align='center'><a href='customer.php' role='button'> <h4>Go Back</h4></a></td>";
+	?>
 </div>
 
 </div>

@@ -46,6 +46,12 @@ echo '<a href="login.php"><h3>Login</h3></a>';
     </thead>
  <tbody>
 <?php 
+if (!isset($_SESSION['Employee_id'])){
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to view this customers.</p>";
+ //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
+}
+else{
 $result = mysqli_query( $conn,"SELECT * FROM customer ORDER BY Cust_id ASC" );
 $num_rows = mysqli_num_rows( $result );
 echo "There are currently $num_rows rows in the table<P>";
@@ -60,7 +66,8 @@ echo "There are currently $num_rows rows in the table<P>";
        echo "<td align='center'><a href='delete.php?Cust_id=".$row['Cust_id']."' role='button'> <h4>Delete</h4></a></td>";
         echo "</tr>\n"; 
 }
- mysqli_free_result($result);
+}
+ //mysqli_free_result($result);
  mysqli_close( $conn );
  ?>
 </tbody>
