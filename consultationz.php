@@ -39,16 +39,16 @@ error_reporting(0);
 include "includes/config.php";
 if (!isset($_SESSION['Employee_id'])){
     require ('includes/login_functions.inc.php');
- echo "<p>please log in to check consultation.</p>";
+ echo "<p>please log in to check consultations.</p>";
  //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
 }
 elseif(isset($_POST['consultationz']))
 {
     // id to search
-    $Pet_id  = $_POST['Pet_id'];
+    $Consultation_id  = $_POST['Consultation_id'];
     
     // mysql search query
-    $query = "select p.Pet_id,p.Name,c.Date_of_Consultation,c.Disease_Injuries,c.Comments from pet p INNER JOIN consultation c ON p.Pet_id = c.Pet_id WHERE p.Pet_id = $Pet_id LIMIT 1";
+    $query = "select p.Pet_id,p.Name,c.Consultation_id,c.Date_of_Consultation,c.Disease_Injuries,c.Comments from pet p INNER JOIN consultation c ON p.Pet_id = c.Pet_id WHERE c.Consultation_id = $Consultation_id LIMIT 1";
     
     $result = mysqli_query($conn, $query);
     
@@ -91,7 +91,7 @@ else{
 ?>
     <form action="consultationz.php" method="POST">
 
-        Pet Id:<input type="number" max="100" min="1" name="Pet_id"  value="<?php echo $Pet_id;?>"><br><br>
+    Consultation Id:<input type="number" max="100" min="1" name="Consultation_id"  value="<?php echo $Consultation_id;?>"><br><br>
 
         Name:<input type="text" name="Name" value="<?php echo $Name;?>"><br><br>
 

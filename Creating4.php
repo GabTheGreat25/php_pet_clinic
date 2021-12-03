@@ -10,7 +10,7 @@ session_start();
 if (!isset($_SESSION['Employee_id'])){
     include "includes/config.php";
     require ('includes/login_functions.inc.php');
- echo "<p>please log in to create a user</p>";
+ echo "<p>please log in to create a service</p>";
  echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
 }
 
@@ -38,7 +38,7 @@ else{
  //$Service_name = $_POST['Service_name'];
  //$Cost = $_POST['Cost'];
  //$Schedule = $_POST['Schedule'];
-$target_dir = "././upload2/";
+$target_dir = "././upload4/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -79,7 +79,7 @@ if ($uploadOk == 0) {
 
         echo nl2br("The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.\n");
 
-        $sql = "INSERT INTO service(Service_name,Cost,Haircut_pi) VALUES ('$Service_name','$Cost','$target_file')";
+        $sql = "INSERT INTO service(Service_name,Cost,Haircut_pic) VALUES ('$Service_name','$Cost','$target_file')";
         echo $sql;
 
  $result = @mysqli_query( $conn,$sql);

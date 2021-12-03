@@ -30,10 +30,10 @@ echo '<div style="font-size:25;color:blue">Update a Pet. </div>';
     <input type='text' id='Name' name='Name' value="<?php echo $row['Name']; ?>">
   </div>
 
-<div class="form-group">
-    <label for="Age" >Age: </label>
-    <input type='text' id='Age' name='Age' value="<?php echo $row['Age']; ?>">
-  </div>
+  <div class="form-group">
+	<label for="Age" >Age: </label>
+	<input type="number" max="100" min="1" style="width:50" step = "1" id="Age" name="Age" value="<?php echo $row['Name']; ?>
+</div>
 
 <div class="form-group">
                 <label>
@@ -82,7 +82,7 @@ echo '<div style="font-size:25;color:blue">Update a Pet. </div>';
  <div>
 	   <h3><button type="submit" name="submit" value="Save">Save</button></h3>
      <?php
-	echo "<td align='center'><a href='customer.php' role='button'> <h4>Go Back</h4></a></td>";
+	echo "<td align='center'><a href='pets.php' role='button'> <h4>Go Back</h4></a></td>";
 	?>
 </div>
 

@@ -1,4 +1,11 @@
 <?php
+session_start();
+include("./includes/config.php");
+ if (!isset($_SESSION['Employee_id']) ) {
+ require ('./includes/login_functions.inc.php');
+  redirect_user(); // pagnarollback babalik kase naka ! gento isset
+}
+else{
     include "includes/config.php";
 
     mysqli_query($conn,'START TRANSACTION');
@@ -29,4 +36,5 @@
         //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
        }
     }
+  }
 ?>
