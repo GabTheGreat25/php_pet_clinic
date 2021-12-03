@@ -1,3 +1,53 @@
+<?php
+include "includes/config.php";
+if(isset($_POST['consultationz']))
+{
+    // id to search
+    $Pet_id  = $_POST['Pet_id'];
+    
+    // mysql search query
+    $query = "select p.Pet_id,p.Name,c.Date_of_Consultation,c.Disease_Injuries,c.Comments from pet p INNER JOIN consultation c ON p.Pet_id = c.Pet_id WHERE p.Pet_id = $Pet_id LIMIT 1";
+    
+    $result = mysqli_query($conn, $query);
+    
+    // if id exist 
+    // show data in inputs
+    if(mysqli_num_rows($result) > 0)
+    {
+      while ($row = mysqli_fetch_array($result))
+      {
+        $Name = $row['Name'];
+        $Date_of_Consultation = $row['Date_of_Consultation'];
+        $Disease_Injuries = $row['Disease_Injuries'];
+        $Comments = $row['Comments'];
+      }  
+    }
+    
+    // if the id not exist
+    // show a message and clear inputs
+    else {
+            $Name = "No Data";
+            $Date_of_Consultation = "No Data";
+            $Disease_Injuries = "No Data";
+            $Comments = "No Data";
+    }
+    
+    
+    mysqli_free_result($result);
+    mysqli_close($conn);
+    
+}
+
+// in the first time inputs are empty
+else{
+    $Name = "";
+    $Date_of_Consultation = "";
+    $Disease_Injuries = "";
+    $Comments = "";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +60,6 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
-    <?php
-include "includes/config.php";
-?>
     <header>
         <div class="logo">
             <h1>Pet Clinic</h1>
@@ -37,44 +84,20 @@ echo '<a href="login.php"><h3>Login</h3></a>';
 </button>
     </header>
 
-    <table >
-    <thead>
-      <tr>
-        <th>Vet </th>
-        <th>Pet</th>
-        <th>Date_of_Consultation</th>
-        <th>Disease&Injuries</th>
-        <th>Comments</th>
-        </tr>
-    </thead>
- <tbody>
-<?php 
-if (!isset($_SESSION['Employee_id'])){
-    require ('includes/login_functions.inc.php');
- echo "<p>please log in to view consultations.</p>";
- //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
-}
-else{
-$result = mysqli_query( $conn,"select e.Last_name,e.First_name,p.Name,c.Date_of_Consultation,c.Disease_Injuries,c.Comments from employee e INNER JOIN consultation c ON e.Employee_id = c.Employee_id INNER JOIN pet p ON p.Pet_id = c.Pet_id;");
-$num_rows = mysqli_num_rows( $result );
-echo "There are currently $num_rows rows in the table<P>";
-  while ($row = mysqli_fetch_array($result)) {  
-        echo "<tr>\n";
-        echo '<td>'.$row['Last_name'].','.$row['First_name'].'</td>';
-        echo "<td>".$row['Name']."</td>";
-        echo "<td>".$row['Date_of_Consultation']."</td>";
-        echo "<td>".$row['Disease_Injuries']."</td>";
-        echo "<td>".$row['Comments']."</td>";
-        //echo "<td align='center'><a href='edit4.php?Service_id=".$row['Service_id']."' role='button'> <h4>Update</h4></a></td>";
-       //echo "<td align='center'><a href='delete4.php?Service_id=".$row['Service_id']."' role='button'> <h4>Delete</h4></a></td>";
-        echo "</tr>\n"; 
-}
-}
- //mysqli_free_result($result);
- 
- mysqli_close( $conn );
- ?>
-</tbody>
-</table>
+    <form action="consultationz.php" method="POST">
+
+        Pet Id:<input type="text" name="Pet_id"><br><br>
+
+        Name:<input type="text" name="Name" value="<?php echo $Name;?>"><br><br>
+
+        Date_of_Consultation:<input type="text" name="Date_of_Consultation" value="<?php echo $Date_of_Consultation;?>"><br><br>
+
+        Disease_Injuries:<input type="text" name="Disease_Injuries" value="<?php echo $Disease_Injuries;?>"><br><br>
+
+        Comments:<input type="text" name="Comments" value="<?php echo $Comments;?>"><br><br>
+
+        <input type="submit" name="consultationz" value="Find">
+
+           </form>
 </body>
 </html>
