@@ -1,6 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>	<?php
+	session_start();
+	?></title>
+      <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
+    <header>
+        <div class="logo">
+            <h1>Pet Clinic</h1>
+        </div>
+        <button><a href = "consulting.php"> <h4>Consult Your Pet</h4>  </a></button>
+        <nav>
+            <ul>
+                <button> <a href = "index.php"><h4>Home</h4></a></button>
+                <button> <a href = "pets.php"><h4>Pets</h4></a></button>
+                <button><a href = "customer.php"><h4>Customers</h4></a></button>
+                <button><a href = "employee.php"><h4>Employee</h4></a></button>
+                <button><a href = "service.php"><h4>Service</h4></a></button>
+                <button><a href = "consultationz.php"><h4>consultation</h4></a></button>
+            </ul>
+        </nav>
+        <button><?php if ( (isset($_SESSION['Employee_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php') ) {
+echo '<a href="logout.php"><h3>Logout</h3></a>';
+} else {
+echo '<a href="login.php"><h3>Login</h3></a>';
+}
+?>
+</button>
+    </header>
+
 <?php
+error_reporting(0);
 include "includes/config.php";
-if(isset($_POST['consultationz']))
+if (!isset($_SESSION['Employee_id'])){
+    require ('includes/login_functions.inc.php');
+ echo "<p>please log in to check consultation.</p>";
+ //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
+}
+elseif(isset($_POST['consultationz']))
 {
     // id to search
     $Pet_id  = $_POST['Pet_id'];
@@ -47,46 +89,9 @@ else{
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>	<?php
-	session_start();
-	?></title>
-      <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
-    <header>
-        <div class="logo">
-            <h1>Pet Clinic</h1>
-        </div>
-        <button><a href = "consulting.php"> <h4>Consult Your Pet</h4>  </a></button>
-        <nav>
-            <ul>
-                <button> <a href = "index.php"><h4>Home</h4></a></button>
-                <button> <a href = "pets.php"><h4>Pets</h4></a></button>
-                <button><a href = "customer.php"><h4>Customers</h4></a></button>
-                <button><a href = "employee.php"><h4>Employee</h4></a></button>
-                <button><a href = "service.php"><h4>Service</h4></a></button>
-                <button><a href = "consultationz.php"><h4>consultation</h4></a></button>
-            </ul>
-        </nav>
-        <button><?php if ( (isset($_SESSION['Employee_id'])) && (basename($_SERVER['PHP_SELF']) != 'logout.php') ) {
-echo '<a href="logout.php"><h3>Logout</h3></a>';
-} else {
-echo '<a href="login.php"><h3>Login</h3></a>';
-}
-?>
-</button>
-    </header>
-
     <form action="consultationz.php" method="POST">
 
-        Pet Id:<input type="text" name="Pet_id"><br><br>
+        Pet Id:<input type="number" max="100" min="1" name="Pet_id"  value="<?php echo $Pet_id;?>"><br><br>
 
         Name:<input type="text" name="Name" value="<?php echo $Name;?>"><br><br>
 
