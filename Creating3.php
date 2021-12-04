@@ -113,7 +113,7 @@ if ($uploadOk == 0) {
  $result = @mysqli_query( $conn,$sql);
 
  if ($result) {
-  echo '<div style="font-size:50;color:blue">CUSTOMER SAVED! </div>';
+  echo '<div style="font-size:50;color:blue">PET SAVED! </div>';
     echo "<td align='center'><a href='pets.php' role='button'> <h4>Go Back</h4></a></td>";
  }
  else{

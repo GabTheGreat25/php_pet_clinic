@@ -67,10 +67,11 @@ CREATE TABLE `pet` (
   `Cust_id` int(45) NOT NULL,
   PRIMARY KEY (`Pet_id`),
   KEY `Cust_id_fk` (`Cust_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO pet VALUES("1","Basha","7","Female","Daschund","././upload3/dog.jpg","1");
 INSERT INTO pet VALUES("2","Coby","2","Male","Scheweenie","././upload3/247572617_877300003175914_7726265633430797562_n.jpg","4");
+INSERT INTO pet VALUES("4","adriel","7","Male","Daschund","././upload3/adriel.png","4");
 
 
 

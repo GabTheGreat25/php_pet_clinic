@@ -116,7 +116,7 @@ if(empty($errors)){
  $result = @mysqli_query( $conn,$sql);
 
  if ($result) {
-  echo '<div style="font-size:50;color:blue">CUSTOMER SAVED! </div>';
+  echo '<div style="font-size:50;color:blue">EMPLOYEE SAVED! </div>';
   echo "<td align='center'><a href='login_page.php' role='button'> <h4>Back to Log In Page</h4></a></td>";
  }
  else{

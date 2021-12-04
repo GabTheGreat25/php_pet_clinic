@@ -39,5 +39,6 @@ echo '<a href="login.php"><h3>Login</h3></a>';
     </header>
     <button><a href = "export.php"><h2>Export</h2></a></button>
     <button><a href = "import.php"><h2>Import</h2></a></button>
+    <button><a href = "transac.php"><h2>transac</h2></a></button>
 </body>
 </html>
