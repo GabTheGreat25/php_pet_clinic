@@ -1,17 +1,14 @@
 <?php
-session_start();
+session_start(); 
 include("./includes/config.php");
  if (!isset($_SESSION['Employee_id']) ) {
  require ('./includes/login_functions.inc.php');
-  redirect_user(); // pagnarollback babalik kase naka ! gento isset
+  redirect_user(); //pagnarollback
 }
 //print_r($_SESSION);
  //try
- {mysqli_query($conn,'START TRANSACTION');
-
-$querry = 'INSERT INTO transaction(Employee_id, Service_id) VALUES ( ?, ?)';
-$Employee_id =  $_SESSION['Employee_id'];
-$flag = true;
+else{
+  mysqli_query($conn,'START TRANSACTION');
 
 // print_r($_SESSION["cart_products"]);
 foreach ($_SESSION["cart"] as $cart_itm){
@@ -21,19 +18,33 @@ $Cost = $cart_itm["Price"];
 $Service_id = $cart_itm["Service_id"];
 //$Cust_id = $cart_itm["Cust_id"];
 
+$querry = 'INSERT INTO transaction(Employee_id, Schedule) VALUES ( ?, NOW())';
+$Employee_id =  $_SESSION['Employee_id'];
+$flag = true;
+
 $stmt1 = mysqli_prepare($conn, $querry);
-mysqli_stmt_bind_param($stmt1, 'ii', $Employee_id, $Service_id);
+mysqli_stmt_bind_param($stmt1, 'i', $Employee_id);
 mysqli_stmt_execute($stmt1);
 
- if($flag == true){
- mysqli_commit($conn);
-  unset($_SESSION['cart']);
-  echo "Success!";
+$Transaction_id = mysqli_insert_id($conn);
+
+$querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id)VALUES (?, ?)';
+$stmt2 = mysqli_prepare($conn, $querry2);
+mysqli_stmt_bind_param($stmt2, 'ii', $Transaction_id, $Service_id);
+mysqli_stmt_execute($stmt2);
+
+if( (mysqli_stmt_affected_rows($stmt2) > 0))
+{
+
+if($flag == true){
+mysqli_commit($conn);
+unset($_SESSION['cart']);
+echo "success";
 }
 else {
- mysqli_rollback($conn);
- echo "Fail";
- }
-}
+mysqli_rollback($conn);
+      }
+    }
+  }
 }
 ?>

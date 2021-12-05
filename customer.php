@@ -1,3 +1,7 @@
+<?php
+   session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +13,8 @@ Customers
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 115% ; ">
     <?php
-    	session_start();
 include "includes/config.php";
 ?>
     <header>

@@ -1,16 +1,16 @@
 body{
     margin: 0px;
     padding: 0px;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
       background: #d2dae2;
     }
     h1, h2, h3{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     }
     ul.products {
     padding: 10;
     margin: 0;
-    max-width: 740px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
     }
@@ -18,17 +18,17 @@ body{
     display: inline-block;
     max-width: 200px;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #f1f2f6;
     margin: 10px;
-    border: 1.5px solid 	#FF1493;  
+    border: 1.5px solid 	black;  
     color: #3D3D3D;
     }
     ul.products li h3 {
     margin: -10px -10px 10px -10px;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
-    background-color: #FF1493;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: #a4b0be;
+    font-family: "Arial, Helvetica, sans-serif;";
     font-size: 1.1em;
     color: #5A5A5A;
     }
@@ -49,14 +49,14 @@ body{
     min-width: 50px;
     }
     button, .button{
-    background-color: #39b3d7;
+    background-color:#636e72;
     min-width: 120px;
     border: none;
     padding: 10px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
     color: #FFF;
     min-height: 15px;
     font: 12px/15px Arial, Helvetica, sans-serif;
@@ -64,7 +64,7 @@ body{
     border-radius: 3px;
     }
     button:hover, .button:hover{
-    background-color: #FF1493;
+    background-color: #2d3436;
     }
     .product-thumb{
     text-align:center;
@@ -151,6 +151,6 @@ body{
     background-color: #EDEDED;
     }
     .cart-view-table-front button, .cart-view-table-front .button, .cart-view-table-back button, .cart-view-table-back .button{
-    margin: 20px 1px;
+    margin: 0px 0px;
     float: center;
     }

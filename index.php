@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <title>
-Home
-</title>
+    session_start();
+    Home
+    </title>
       <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 115% ; ">
 <!--<audio autoplay="" loop="" src="./Joe Lamont  Victims Of Love Lyrics.mp3"></audio>-->
     <?php
-    session_start(); 
 include "includes/config.php";
 ?>
     <header>

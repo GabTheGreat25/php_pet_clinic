@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("./includes/config.php");
+include("./includes/config.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,7 @@ include_once("./includes/config.php");
 <link href="./transaction/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1 align="center">Services</h1>
-<h2>Types of Services</h2>
+<strong><h1 align="center">Types Of Services</h1></strong>
 <?php
 if(isset($_SESSION["cart"]) && count($_SESSION["cart"])>0)
 {

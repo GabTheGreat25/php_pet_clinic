@@ -55,6 +55,22 @@ INSERT INTO employee VALUES("3","adrian","mendoza","adrian_mendoza0@yahoo.com.ph
 
 
 
+DROP TABLE orderline;
+
+CREATE TABLE `orderline` (
+  `Employee_id` int(11) NOT NULL,
+  `Service_id` int(11) NOT NULL,
+  `Schedule` datetime DEFAULT NULL,
+  PRIMARY KEY (`Service_id`,`Employee_id`) USING BTREE,
+  KEY `Employee_id_fk` (`Employee_id`,`Service_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO orderline VALUES("3","1","2021-12-05 20:37:17");
+INSERT INTO orderline VALUES("3","9","2021-12-05 20:37:17");
+INSERT INTO orderline VALUES("3","10","2021-12-05 20:37:17");
+
+
+
 DROP TABLE pet;
 
 CREATE TABLE `pet` (
@@ -67,7 +83,7 @@ CREATE TABLE `pet` (
   `Cust_id` int(45) NOT NULL,
   PRIMARY KEY (`Pet_id`),
   KEY `Cust_id_fk` (`Cust_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO pet VALUES("1","Basha","7","Female","Daschund","././upload3/dog.jpg","1");
 INSERT INTO pet VALUES("2","Coby","2","Male","Scheweenie","././upload3/247572617_877300003175914_7726265633430797562_n.jpg","4");
@@ -83,9 +99,45 @@ CREATE TABLE `service` (
   `Cost` double NOT NULL,
   `Haircut_pic` varchar(100) NOT NULL,
   PRIMARY KEY (`Service_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO service VALUES("1","Dutch Court","150","././upload4/dog.jpg");
+INSERT INTO service VALUES("5","Cut teddy bear","500","././upload4/dog2.jpg");
+INSERT INTO service VALUES("6","Blow Dry","100","././upload4/blow_dry.jpg");
+INSERT INTO service VALUES("7","Nail Clipping","50","././upload4/nail_clip.jpg");
+INSERT INTO service VALUES("8","Ear Cleaning","175","././upload4/ear_clean.jpg");
+INSERT INTO service VALUES("9","Eyes Cleaning","75","././upload4/Eyes_Cleaning.jpg");
+INSERT INTO service VALUES("10","Paw Massage","25","././upload4/Paw_Massage.jpg");
+INSERT INTO service VALUES("11","Combing/Brushing","400","././upload4/Combing_Brushing.jpg");
+INSERT INTO service VALUES("12","Bath With Shampoo & Conditioner","225","././upload4/dog_bath.jpg");
+
+
+
+DROP TABLE transaction;
+
+CREATE TABLE `transaction` (
+  `Transaction_id` int(11) NOT NULL AUTO_INCREMENT,
+  `Employee_id` int(11) NOT NULL,
+  `Schedule` datetime DEFAULT NULL,
+  PRIMARY KEY (`Transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO transaction VALUES("1","3","2021-12-05 20:54:38");
+INSERT INTO transaction VALUES("2","3","2021-12-05 20:54:43");
+
+
+
+DROP TABLE transaction_line;
+
+CREATE TABLE `transaction_line` (
+  `Transaction_id` int(11) NOT NULL,
+  `Service_id` int(11) NOT NULL,
+  PRIMARY KEY (`Transaction_id`,`Service_id`),
+  KEY `basta_fk` (`Transaction_id`,`Service_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO transaction_line VALUES("1","1");
+INSERT INTO transaction_line VALUES("2","1");
 
 
 

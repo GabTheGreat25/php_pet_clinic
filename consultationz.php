@@ -1,3 +1,6 @@
+<?php
+   session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +13,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     
 </head>
-<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 115% ; ">
     <header>
         <div class="logo">
             <h1>Pet Clinic</h1>
@@ -36,7 +39,6 @@ echo '<a href="login.php"><h3>Login</h3></a>';
     </header>
 
 <?php
-	session_start();
 error_reporting(0);
 include "includes/config.php";
 if (!isset($_SESSION['Employee_id'])){
