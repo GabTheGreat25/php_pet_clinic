@@ -10,7 +10,6 @@
 
    <?php
    
-   $page_title = 'Login';
     // Print any error messages, if they exist:
     if (isset($errors) && !empty($errors)) {
       echo '<h1>Error!</h1>

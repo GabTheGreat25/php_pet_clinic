@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <title>
-	<?php
-        session_start(); 
-	?>
+Home
 </title>
       <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +10,9 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
-<audio autoplay="" loop="" src="./Joe Lamont  Victims Of Love Lyrics.mp3"></audio>
+<!--<audio autoplay="" loop="" src="./Joe Lamont  Victims Of Love Lyrics.mp3"></audio>-->
     <?php
+    session_start(); 
 include "includes/config.php";
 ?>
     <header>

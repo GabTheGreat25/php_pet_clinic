@@ -3,7 +3,7 @@
 <head>
     <title>Creating a Employee</title>
 </head>
-<body>
+<body style="background-color:#aaa69d";>
 
 <?php
 //print_r($_POST);

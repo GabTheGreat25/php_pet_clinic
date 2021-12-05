@@ -7,7 +7,6 @@ if (!isset($_SESSION['Employee_id'])) {
 } else {
  //$_SESSION = array();
 setcookie ('PHPSESSID', '', time()-3600, '/', '', 0, 0);
-$page_title = 'Logged Out!';
 include ('index.php');
 echo "<h1>Logged Out!</h1>
 <p>You are now logged out, {$_SESSION['First_name']}!</p>";

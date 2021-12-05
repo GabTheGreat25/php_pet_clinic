@@ -3,7 +3,7 @@
 <head>
     <title>Creating a Service</title>
 </head>
-<body>
+<body style="background-color:#aaa69d";>
 
 <?php
 session_start();
