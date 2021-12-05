@@ -63,8 +63,8 @@ echo "There are currently $num_rows rows in the table<P>";
         echo "<td>".$row['Last_name']."</td>";
         echo "<td>".$row['Phone_number']."</td>";
         echo "<td><img width = '100px' height = '100px' src =".$row['Cust_pic']."></td>";
-        echo "<td align='center'><a href='edit.php?Cust_id=".$row['Cust_id']."' role='button'> <h4>Update</h4></a></td>";
-       echo "<td align='center'><a href='delete.php?Cust_id=".$row['Cust_id']."' role='button'> <h4>Delete</h4></a></td>";
+        echo "<td align='center'><a href='edit.php?Cust_id=".$row['Cust_id']."' role='button'> <h1>Update</h1></a></td>";
+       echo "<td align='center'><a href='delete.php?Cust_id=".$row['Cust_id']."' role='button'> <h1>Delete</h1></a></td>";
         echo "</tr>\n"; 
 }
 }

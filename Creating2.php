@@ -131,8 +131,7 @@ echo " - $msg<br />\n";
 }
 }
 else{
-    echo '<div style="font-size:50;color:blue">YOU CANCEL THE REGISTRATION FORM! </div>';
-    echo "<td align='center'><a href='login_page.php' role='button'> <h4>Back to Log In Page</h4></a></td>";
+header("location: login_page.php");
 }
 ?>
 </body>

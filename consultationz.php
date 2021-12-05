@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    
 </head>
 <body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
     <header>
@@ -90,19 +91,21 @@ else{
 
 ?>
     <form action="consultationz.php" method="POST">
+    <div class="tbl-container">
 
-    Consultation Id:<input type="number" max="100" min="1" name="Consultation_id"  value="<?php echo $Consultation_id;?>"><br><br>
+        Consultation Id:<input type="number" max="100" min="1" name="Consultation_id"  value="<?php echo $Consultation_id;?>"><br><br>
 
-        Name:<input type="text" name="Name" value="<?php echo $Name;?>"><br><br>
+        Name:<input type="text" name="Name" readonly value="<?php echo $Name;?>"><br><br>
 
-        Date_of_Consultation:<input type="text" name="Date_of_Consultation" value="<?php echo $Date_of_Consultation;?>"><br><br>
+        Date_of_Consultation:<input type="text" name="Date_of_Consultation" readonly value="<?php echo $Date_of_Consultation;?>"><br><br>
 
-        Disease_Injuries:<input type="text" name="Disease_Injuries" value="<?php echo $Disease_Injuries;?>"><br><br>
+        Disease_Injuries:<input type="text" name="Disease_Injuries" readonly value="<?php echo $Disease_Injuries;?>"><br><br>
 
-        Comments:<input type="text" name="Comments" value="<?php echo $Comments;?>"><br><br>
+        Comments: <textarea><?php echo $Comments;?></textarea><br><br>
 
         <input type="submit" name="consultationz" value="Find">
 
            </form>
+           </div>
 </body>
 </html>

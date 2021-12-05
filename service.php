@@ -64,8 +64,8 @@ echo "There are currently $num_rows rows in the table<P>";
         echo "<td>".$row['Cost']."</td>";
        // echo "<td>".$row['Schedule']."</td>";
         echo "<td><img width = '100px' height = '100px' src =".$row['Haircut_pic']."></td>";
-        echo "<td align='center'><a href='edit4.php?Service_id=".$row['Service_id']."' role='button'> <h4>Update</h4></a></td>";
-       echo "<td align='center'><a href='delete4.php?Service_id=".$row['Service_id']."' role='button'> <h4>Delete</h4></a></td>";
+        echo "<td align='center'><a href='edit4.php?Service_id=".$row['Service_id']."' role='button'> <h1>Update</h1></a></td>";
+       echo "<td align='center'><a href='delete4.php?Service_id=".$row['Service_id']."' role='button'> <h1>Delete</h1></a></td>";
         echo "</tr>\n"; 
 }
 }

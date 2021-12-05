@@ -12,9 +12,9 @@ session_start();
 if (!isset($_SESSION['Employee_id'])){
     include "includes/config.php";
     require ('includes/login_functions.inc.php');
- echo "<p>please log in to edit this user</p>";
- echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
- //redirect_user();
+ //echo "<p>please log in to edit this user</p>";
+ //echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
+ redirect_user();
 }
 //print_r($_POST);
 else{
@@ -73,6 +73,6 @@ elseif (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
      }
 }
 ?>
-<a href = "index.php" role = "button"> <h4>Back</h4>  </a></i>
+<a href = "customer.php" role = "button"> <h4>Back</h4>  </a></i>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Create a Employee</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#aaa69d";>
 
 <?php
 include "includes/config.php";
@@ -12,48 +13,49 @@ include "includes/config.php";
 <div class="container">
 
 	<?php
-echo '<div style="font-size:25;color:blue">Create a Employee. </div>';
+echo '<div style="font-size:40;color:white">Create a Employee</div>';
 ?>
 
 <form method="POST" action="Creating2.php" enctype="multipart/form-data" >
 <div class="form-group">
-	<label for="fname" >First_Name: </label>
-	<input type="text" id="fname" name="fname" >
+	<label for="fname" class="form-label">First_Name: </label>
+	<input type="text" id="fname" name="fname" class="form-control">
 </div>
 
 <div class="form-group">
-	<label for="lname" >Last_Name: </label>
-	<input type="text" id="lname" name="lname" >
+	<label for="lname"  class="form-label">Last_Name: </label>
+	<input type="text" id="lname" name="lname" class="form-control">
 </div>
 
 <div class="form-group">
-	<label for="phone" >Phone: </label>
-	<input type="text" id="phone" name="phone" >
+	<label for="phone"  class="form-label">Phone: </label>
+	<input type="text" id="phone" name="phone" class="form-control">
 </div>
 
  <div class="form-group">
-	<label for="Registration_date" >Registration_date: </label>
-	<input type="datetime-local" id="Registration_date" name="Registration_date" >
+	<label for="Registration_date"  class="form-label">Registration_date: </label>
+	<input type="datetime-local" id="Registration_date" name="Registration_date" class="form-control">
 </div>
 
 <div class="form-group">
-	<label for="Email" >Email: </label>
-	<input type="email" id="Email" name="Email" >
+	<label for="Email" class="form-label">Email: </label>
+	<input type="email" id="Email" name="Email" class="form-control">
 </div>
 
 <div class="form-group">
-	<label for="Password" >Password: </label>
-	<input type="password" id="Password" name="Password" >
+	<label for="Password" class="form-label">Password: </label>
+	<input type="password" id="Password" name="Password" class="form-control">
 </div>
 
 <div class="form-group">
-	<label for="Password2" >Confirm Password: </label>
-	<input type="password" id="Password2" name="Password2" >
+	<label for="Password2" class="form-label">Confirm Password: </label>
+	<input type="password" id="Password2" name="Password2" class="form-control">
 </div>
 
  <div class="form-group"> 
-    <label for="fileToUpload" >Select an image to upload: </label>
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    <label for="fileToUpload" class="form-label">Select an image to upload: </label>
+    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+	<br>
  </div>
 
 <div>

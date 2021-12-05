@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION['Employee_id'] = 1;
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +13,7 @@ $_SESSION['Employee_id'] = 1;
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body>
+<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 100% ; ">
     <?php
     include "includes/config.php";
     ?>
@@ -72,7 +70,7 @@ $_SESSION['Employee_id'] = 1;
                 </tr>
             </thead>
             <tbody>
-                <!-- <?php
+                <?php
                         if (!isset($_SESSION['Employee_id'])) {
                             require('includes/login_functions.inc.php');
                             echo "<p>please log in to view pets.</p>";
@@ -90,14 +88,14 @@ $_SESSION['Employee_id'] = 1;
                                 echo "<td>" . $row['Breed'] . "</td>";
                                 echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
                                 echo "<td><img width = '100px' height = '100px' src =" . $row['Pet_pic'] . "></td>";
-                                echo "<td align='center'><a href='edit3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h4>Update</h4></a></td>";
-                                echo "<td align='center'><a href='delete3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h4>Delete</h4></a></td>";
+                                echo "<td align='center'><a href='edit3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Update</h1></a></td>";
+                                echo "<td align='center'><a href='delete3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Delete</h1></a></td>";
                                 echo "</tr>\n";
                             }
                         }
                         // mysqli_free_result($result);
                         mysqli_close($conn);
-                        ?> -->
+                        ?>
             </tbody>
         </table>
     </div>

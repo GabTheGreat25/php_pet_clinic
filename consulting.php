@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Consultation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#aaa69d";>
 
 <?php
 include "includes/config.php";
@@ -12,16 +13,14 @@ include "includes/config.php";
 <div class="container">
 
 	<?php
-echo '<div style="font-size:25;color:blue">Consultation</div>';
+echo '<div style="font-size:40;color:white">Consultation</div>';
 ?>
 
 <form method="POST" action="consultation.php">
 
-<fieldset>
-
 <div class="form-group"> 
-   <label for="Employee_id">Vet: </label>
-  <select name="Employee_id" id="Employee_id">
+   <label for="Employee_id" class="form-label">Vet: </label>
+  <select name="Employee_id" id="Employee_id" style="width: 92.5em;" class="form-select form-select-sm">
    <?php
    $sql = "select Employee_id, First_name, Last_name from employee";
    $results = mysqli_query($conn,$sql);
@@ -33,8 +32,8 @@ echo '<div style="font-size:25;color:blue">Consultation</div>';
 </div>
 
 <div class="form-group"> 
-   <label for="Pet_id">Pet: </label>
-  <select name="Pet_id" id="Pet_id">
+   <label for="Pet_id" class="form-label">Pet: </label>
+  <select name="Pet_id" id="Pet_id" style="width: 92.5em;" class="form-select form-select-sm">
    <?php
    $sql = "select Pet_id, Name  from pet";
    $results = mysqli_query($conn,$sql);
@@ -46,14 +45,14 @@ echo '<div style="font-size:25;color:blue">Consultation</div>';
 </div>
 
 <div class="form-group">
-	<label for="Date_of_Consultation" >Date_of_Consultation: </label>
-	<input type="datetime-local" id="Date_of_Consultation" name="Date_of_Consultation" >
+	<label for="Date_of_Consultation" class="form-label">Date_of_Consultation: </label>
+	<input type="datetime-local" id="Date_of_Consultation" name="Date_of_Consultation" class="form-control">
 </div>
 
 <div class="form-group">
-<label>
+<label class="form-label">
                 <span>Disease or Injuries: </span>
-                <select name="Disease_Injuries">
+                <select name="Disease_Injuries" style="width: 92.5em;" class="form-select form-select-sm">
                 <option value="Cataracts">Cataracts</option>
                 <option value="Arthritis">Arthritis</option>
                 <option value="Ear_Infections">Ear_Infections</option>
@@ -69,21 +68,22 @@ echo '<div style="font-size:25;color:blue">Consultation</div>';
 </div>
 
 <div class="form-group">
-	<label for="Comments" >Comments: </label>
-	<input type="text" id="Comments" name="Comments" >
+	<label for="Comments" class="form-label">Comments: </label>
+	<input type="text" id="Comments" name="Comments" class="form-control">
+  <br>
 </div>
 
 <div>
 	<h3><button type="submit" name="submit" value="Save">Save</button></h3>
+  <br>
   <?php
-	echo "<td align='center'><a href='index.php' role='button'> <h4>Go Back</h4></a></td>";
+	echo "<td align='center'><a href='consultationz.php' role='button'> <h4>Go Back</h4></a></td>";
 	?>
 </div>
 
 </div>
 	</form>
 </div>
-</fieldset>
 <?php
 mysqli_close( $conn );
  ?>
