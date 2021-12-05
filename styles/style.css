@@ -1,64 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-li, a, button {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    color: #2f3542;
-    text-decoration: none;
+.tbl-container {
+  width: 100vw;
+  height: 90vh;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+li,
+a,
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #2f3542;
+  text-decoration: none;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    background-color: #4b4b4b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: #4b4b4b;
+  height: 10vh;
 }
 
 .logo {
-    cursor: auto;
-    color: white;
+  cursor: auto;
+  color: white;
 }
 
 .nav__links {
-    list-style: none;
+  list-style: none;
 }
 
 .nav__links li {
+  /* makes the li side by side not up and down */
+  display: inline-block;
 
-    /* makes the li side by side not up and down */
-    display: inline-block;
-
-    padding: 0px 10px;
+  padding: 0px 10px;
 }
 
-.nav__links li a{
-
-    transition: all 0.3s ease 0s;
+.nav__links li a {
+  transition: all 0.3s ease 0s;
 }
 
-.nav__links li a:hover{
-
-    color: #bdc3c7;
+.nav__links li a:hover {
+  color: #bdc3c7;
 }
 
 button {
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
 button:hover {
-    background-color: rgba(0, 136, 169, 0.8);
+  background-color: rgba(0, 136, 169, 0.8);
 }
