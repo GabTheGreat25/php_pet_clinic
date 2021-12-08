@@ -26,22 +26,22 @@ session_start();
         <nav>
             <ul>
                 <button> <a href="index.php">
-                        <h4>Home</h4>
+                        <h5>Home</h5>
                     </a></button>
                 <button> <a href="pets.php">
-                        <h4>Pets</h4>
+                        <h5>Pets</h5>
                     </a></button>
                 <button><a href="customer.php">
-                        <h4>Customers</h4>
+                        <h5>Customers</h5>
                     </a></button>
                 <button><a href="employee.php">
-                        <h4>Employee</h4>
+                        <h5>Employee</h5>
                     </a></button>
                 <button><a href="service.php">
-                        <h4>Service</h4>
+                        <h5>Service</h5>
                     </a></button>
                 <button><a href="consultationz.php">
-                        <h4>consultation</h4>
+                        <h5>Consultation</h5>
                     </a></button>
             </ul>
         </nav>
@@ -53,76 +53,29 @@ session_start();
                 ?>
         </button>
     </header>
+<form method="POST">
+<input type="text" name="find">
+<input type="submit" value="Search Pet Id">
+</form>
 
     <?php
-    error_reporting(0);
-    include "includes/config.php";
-    if (!isset($_SESSION['Employee_id'])) {
-        require('includes/login_functions.inc.php');
-        echo "<p>please log in to check consultations.</p>";
-        //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
-    } elseif (isset($_POST['consultationz'])) {
-        // id to search
-        $Consultation_id  = $_POST['Consultation_id'];
-
-        // mysql search query
-        $query = "select p.Pet_id,p.Name,c.Consultation_id,c.Date_of_Consultation,c.Disease_Injuries,c.Comments from pet p INNER JOIN consultation c ON p.Pet_id = c.Pet_id WHERE c.Consultation_id = $Consultation_id LIMIT 1";
-
-        $result = mysqli_query($conn, $query);
-
-        // if id exist 
-        // show data in inputs
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_array($result)) {
-                $Name = $row['Name'];
-                $Date_of_Consultation = $row['Date_of_Consultation'];
-                $Disease_Injuries = $row['Disease_Injuries'];
-                $Comments = $row['Comments'];
+     //include "includes/config.php";
+    if(isset($_POST['find'])){
+        require "search.php";
+        if(count($results) > 0){
+            foreach ($results as $row){
+                //echo "<tr>\n";
+                echo "<div>" . $row['Name'] . "</div>";
+                echo "<div>" . $row['Date_of_Consultation'] . "</div>";
+                echo "<div>" . $row['Disease_Injuries'] . "</div>";
+                echo "<div>" . $row['Comments'] . "</div>";
+               //echo "</tr>\n";
             }
+        } else { 
+            echo  "<td>No Results Found.</td>";
         }
-
-        // if the id not exist
-        // show a message and clear inputs
-        else {
-            $Name = "No Data";
-            $Date_of_Consultation = "No Data";
-            $Disease_Injuries = "No Data";
-            $Comments = "No Data";
-        }
-
-
-        mysqli_free_result($result);
-        mysqli_close($conn);
     }
-
-    // in the first time inputs are empty
-    else {
-        $Name = "";
-        $Date_of_Consultation = "";
-        $Disease_Injuries = "";
-        $Comments = "";
-    }
-
     ?>
-    <div class="form-container">
-        <form action="consultationz.php" method="POST" class="form">
-
-            Consultation Id:<input type="number" max="100" min="1" name="Consultation_id" value="<?php echo $Consultation_id; ?>"><br><br>
-
-            Name:<input type="text" name="Name" readonly value="<?php echo $Name; ?>"><br><br>
-
-            Date_of_Consultation:<input type="text" name="Date_of_Consultation" readonly value="<?php echo $Date_of_Consultation; ?>"><br><br>
-
-            Disease_Injuries:<input type="text" name="Disease_Injuries" readonly value="<?php echo $Disease_Injuries; ?>"><br><br>
-
-            Comments: <textarea><?php echo $Comments; ?></textarea><br><br>
-
-            <input type="submit" name="consultationz" value="Find">
-
-        </form>
-    </div>
-
-    </div>
 </body>
 
 </html>

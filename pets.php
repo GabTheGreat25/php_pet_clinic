@@ -1,5 +1,5 @@
 <?php
-   session_start(); 
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body style = "background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 115% ; ">
+<body style="background: url(https://wallpapercave.com/wp/B1sODrM.jpg); background-size: 115% ; ">
     <?php
     include "includes/config.php";
     ?>
@@ -27,22 +27,22 @@
         <nav>
             <ul>
                 <button> <a href="index.php">
-                        <h4>Home</h4>
+                        <h5>Home</h5>
                     </a></button>
                 <button> <a href="pets.php">
-                        <h4>Pets</h4>
+                        <h5>Pets</h5>
                     </a></button>
                 <button><a href="customer.php">
-                        <h4>Customers</h4>
+                        <h5>Customers</h5>
                     </a></button>
                 <button><a href="employee.php">
-                        <h4>Employee</h4>
+                        <h5>Employee</h5>
                     </a></button>
                 <button><a href="service.php">
-                        <h4>Service</h4>
+                        <h5>Service</h5>
                     </a></button>
                 <button><a href="consultationz.php">
-                        <h4>consultation</h4>
+                        <h5>Consultation</h5>
                     </a></button>
             </ul>
         </nav>
@@ -71,31 +71,31 @@
             </thead>
             <tbody>
                 <?php
-                        if (!isset($_SESSION['Employee_id'])) {
-                            require('includes/login_functions.inc.php');
-                            echo "<p>please log in to view pets.</p>";
-                            //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
-                        } else {
-                            $result = mysqli_query($conn, "SELECT * FROM pet p INNER JOIN customer c ON p.Cust_id = c.Cust_id ORDER BY Pet_id ASC");
-                            $num_rows = mysqli_num_rows($result);
-                            echo "There are currently $num_rows rows in the table<P>";
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<tr>\n";
-                                echo "<td>" . $row['Pet_id'] . "</td>";
-                                echo "<td>" . $row['Name'] . "</td>";
-                                echo "<td>" . $row['Age'] . "</td>";
-                                echo "<td>" . $row['Sex'] . "</td>";
-                                echo "<td>" . $row['Breed'] . "</td>";
-                                echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
-                                echo "<td><img width = '100px' height = '100px' src =" . $row['Pet_pic'] . "></td>";
-                                echo "<td align='center'><a href='edit3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Update</h1></a></td>";
-                                echo "<td align='center'><a href='delete3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Delete</h1></a></td>";
-                                echo "</tr>\n";
-                            }
-                        }
-                        // mysqli_free_result($result);
-                        mysqli_close($conn);
-                        ?>
+                if (!isset($_SESSION['Employee_id'])) {
+                    require('includes/login_functions.inc.php');
+                    echo "<p>please log in to view pets.</p>";
+                    //echo "<td align='center'><a href='index.php' role='button'> <font color='brightgreek'><h2>Go Back</h2></font></a></td>";
+                } else {
+                    $result = mysqli_query($conn, "SELECT * FROM pet p INNER JOIN customer c ON p.Cust_id = c.Cust_id ORDER BY Pet_id ASC");
+                    $num_rows = mysqli_num_rows($result);
+                    echo "There are currently $num_rows rows in the table<P>";
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>\n";
+                        echo "<td>" . $row['Pet_id'] . "</td>";
+                        echo "<td>" . $row['Name'] . "</td>";
+                        echo "<td>" . $row['Age'] . "</td>";
+                        echo "<td>" . $row['Sex'] . "</td>";
+                        echo "<td>" . $row['Breed'] . "</td>";
+                        echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
+                        echo "<td><img width = '100px' height = '100px' src =" . $row['Pet_pic'] . "></td>";
+                        echo "<td align='center'><a href='edit3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Update</h1></a></td>";
+                        echo "<td align='center'><a href='delete3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Delete</h1></a></td>";
+                        echo "</tr>\n";
+                    }
+                }
+                // mysqli_free_result($result);
+                mysqli_close($conn);
+                ?>
             </tbody>
         </table>
     </div>

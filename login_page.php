@@ -9,7 +9,7 @@
  <body>
 
    <?php
-   
+
     // Print any error messages, if they exist:
     if (isset($errors) && !empty($errors)) {
       echo '<h1>Error!</h1>
@@ -22,7 +22,7 @@
 
     ?>
    <form class="box" action="login.php" method="POST">
-    <h1>Login</h1>
+     <h1>Login</h1>
      <p>Email Address: <input type="text" name="Email" placeholder="Username"></p>
      <p>Password: <input type="password" name="Password" placeholder="Password"></p>
      <input type="submit" name="submit" value="Login">

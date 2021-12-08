@@ -7,4 +7,3 @@ redirect_user();
 }
 include ('index.php');
 echo "<h1>Logged In!</h1> <p>You are now logged in, {$_SESSION['First_name']}!</p>";
-?>

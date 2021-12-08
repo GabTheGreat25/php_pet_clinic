@@ -3,13 +3,13 @@ session_start();
 include("./includes/config.php");
  if (!isset($_SESSION['Employee_id']) ) {
  require ('./includes/login_functions.inc.php');
-  redirect_user(); // pagnarollback babalik kase naka ! gento isset
+  redirect_user(); // pagnarollback
 }
 else{
     include "includes/config.php";
 
     mysqli_query($conn,'START TRANSACTION');
-    $sql = 'INSERT INTO consultation(Employee_id, Pet_id, Date_of_Consultation, Disease_Injuries, Comments) VALUES (?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO consultation(Employee_id, Pet_id, Date_of_Consultation, Disease_Injuries, Price, Comments) VALUES (?, ?, ?, ?, ?, ?)';
     $flag = true;
     
     if ($_POST['submit'] ==  "Save"){
@@ -17,10 +17,11 @@ else{
     $Pet_id = $_POST['Pet_id'];
     $Date_of_Consultation = $_POST['Date_of_Consultation'];
     $Disease_Injuries = $_POST['Disease_Injuries'];
+    $Price = $_POST['Price'];
     $Comments = $_POST['Comments'];
 
     $consult = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($consult, 'iisss', $Employee_id, $Pet_id,$Date_of_Consultation, $Disease_Injuries, $Comments);
+    mysqli_stmt_bind_param($consult, 'iissis', $Employee_id, $Pet_id,$Date_of_Consultation, $Disease_Injuries, $Price, $Comments);
     mysqli_stmt_execute($consult);
 
 
@@ -37,4 +38,3 @@ else{
        }
     }
   }
-?>

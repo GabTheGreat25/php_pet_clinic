@@ -15,4 +15,3 @@ $errors = $data;
 mysqli_close($conn);
 }
 include ('login_page.php');
-?>
