@@ -54,7 +54,7 @@ session_start();
         </button>
     </header>
 <form method="POST">
-<input type="text" name="find">
+<input type="number" max="100" min="1" style="width: 10em;"  step="1" name="find">
 <input type="submit" value="Search Pet Id">
 </form>
 
@@ -69,6 +69,7 @@ session_start();
                 echo "<div>" . $row['Date_of_Consultation'] . "</div>";
                 echo "<div>" . $row['Disease_Injuries'] . "</div>";
                 echo "<div>" . $row['Comments'] . "</div>";
+                echo "<br>";
                //echo "</tr>\n";
             }
         } else { 

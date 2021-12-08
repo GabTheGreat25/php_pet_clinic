@@ -18,26 +18,26 @@ else {
     $Service_id = $cart_itm["Service_id"];
     //$Cust_id = $cart_itm["Cust_id"];
 
-    $querry = 'INSERT INTO transaction(Employee_id, Schedule) VALUES ( ?, NOW())';
+    $querry = 'INSERT INTO transaction(Employee_id, Service_id, Schedule) VALUES ( ?, ?,NOW())';
     $Employee_id =  $_SESSION['Employee_id'];
     $flag = true;
 
     $stmt1 = mysqli_prepare($conn, $querry);
-    mysqli_stmt_bind_param($stmt1, 'i', $Employee_id);
+    mysqli_stmt_bind_param($stmt1, 'ii', $Employee_id, $Service_id );
     mysqli_stmt_execute($stmt1);
 
-    $Transaction_id = mysqli_insert_id($conn);
+    //$Transaction_id = mysqli_insert_id($conn);
 
-    $querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id)VALUES (?, ?)';
-    $stmt2 = mysqli_prepare($conn, $querry2);
-    mysqli_stmt_bind_param($stmt2, 'ii', $Transaction_id, $Service_id);
-    mysqli_stmt_execute($stmt2);
+    //$querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id)VALUES (?, ?)';
+    //$stmt2 = mysqli_prepare($conn, $querry2);
+    //mysqli_stmt_bind_param($stmt2, 'ii', $Transaction_id, $Service_id);
+    //mysqli_stmt_execute($stmt2);
 
-    if ((mysqli_stmt_affected_rows($stmt2) > 0)) {
+    if ((mysqli_stmt_affected_rows($stmt1) > 0)) {
 
       if ($flag == true) {
         mysqli_commit($conn);
-        unset($_SESSION['cart']);
+        //unset($_SESSION['cart']);
         echo "success";
       } else {
         mysqli_rollback($conn);

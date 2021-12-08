@@ -30,15 +30,12 @@ include("./includes/config.php");
             $Service_name = $cart_itm["Name"];
             $Cost = $cart_itm["Price"]; //dun sa maliit na table kaya tinawag siya sa cart_update gets ko na ren jusqo HAHA
             $Service_id = $cart_itm["Service_id"];
-            //$Cust_id = $cart_itm["Cust_id"];
             $bg_color = ($b++ % 2 == 1) ? 'odd' : 'even'; //zebra stripe
+
             echo '<tr class="' . $bg_color . '">';
             echo '<td>' . $Service_name . '</td>';
-            //echo '<td><input type="text" value="'.$Cust_id.'"></td>';
             echo '<td><input type="checkbox" name="remove_code[]" value="' . $Service_id . '" /> Remove</td>';
             echo '</tr>';
-            //$subtotal = ($product_price * $product_qty);
-            //$total = ($total + $subtotal);
         }
         echo '<td colspan="4">';
         echo '<button type="submit">Update</button>
@@ -59,8 +56,9 @@ include("./includes/config.php");
     $results = mysqli_query($conn, "select* from service");
     if ($results) {
         $services = '<ul class="products">';
-        while ($row = mysqli_fetch_array($results)) {
+        while ($row = mysqli_fetch_assoc($results)) {
             $services .= <<<EUT
+
         <li class="product">
             <form method="POST" action="transac_update.php">
                 <div class="product-content"><h3>{$row['Service_name']}</h3>
