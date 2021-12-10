@@ -61,7 +61,7 @@ session_start();
     <?php
      //include "includes/config.php";
     if(isset($_POST['find'])){
-        require "search.php";
+        require_once "search.php";
         if(count($results) > 0){
             foreach ($results as $row){
                 //echo "<tr>\n";

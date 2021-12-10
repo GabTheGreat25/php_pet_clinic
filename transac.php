@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include("./includes/config.php");
 ?>
 <!DOCTYPE html>
@@ -27,15 +28,20 @@ include("./includes/config.php");
         foreach ($_SESSION["cart"] as $cart_itm) {
             //var_dump($cart_itm);
             //exit();
+           // $Name = $cart_itm["Pet_name"];
             $Service_name = $cart_itm["Name"];
             $Cost = $cart_itm["Price"]; //dun sa maliit na table kaya tinawag siya sa cart_update gets ko na ren jusqo HAHA
+           // $Pet_id = $cart_itm["Pet_id"];
             $Service_id = $cart_itm["Service_id"];
+            //$Cust_id = $cart_itm["Cust_id"];
             $bg_color = ($b++ % 2 == 1) ? 'odd' : 'even'; //zebra stripe
-
             echo '<tr class="' . $bg_color . '">';
-            echo '<td>' . $Service_name . '</td>';
+            echo '<td>' . $Name .''. $Service_name . '</td>';
+            //echo '<td><input type="text" value="'.$Cust_id.'"></td>';
             echo '<td><input type="checkbox" name="remove_code[]" value="' . $Service_id . '" /> Remove</td>';
             echo '</tr>';
+            //$subtotal = ($product_price * $product_qty);
+            //$total = ($total + $subtotal);
         }
         echo '<td colspan="4">';
         echo '<button type="submit">Update</button>
@@ -51,32 +57,58 @@ include("./includes/config.php");
     }
     ?>
 
+<?php
+   // $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+  //  $results = mysqli_query($conn, "select* from pet");
+  //  if ($results) {
+   //     $service = '<ul align="center" class="products">';
+   //     while ($row = mysqli_fetch_array($results)) {
+    //        $service .= <<<EUT
+    //    <li class="product">
+     //       <form method="POST" action="try.php">
+    //            <div  align="center" class="product-info">
+     //           {$row['Name']}
+     //           <br></br>
+      //          <input type="hidden" name="Pet_id" value="{$row['Pet_id']}" />
+      //          <input type="hidden" name="type" value="add" /> 
+      //          <input type="hidden" name="return_url" value="{$current_url}" />
+      //          <div align="center"><button type="  " class="add_to_cart">Pick A Pet</button></div>
+      //          </div></div>
+      //       </form>
+      //  </li>
+//EUT;
+      //  }
+     //   $service .= '</ul>';
+     //   echo $service;
+   // }
+    ?>
+
     <?php
     $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     $results = mysqli_query($conn, "select* from service");
     if ($results) {
         $services = '<ul class="products">';
-        while ($row = mysqli_fetch_assoc($results)) {
+        while ($row = mysqli_fetch_array($results)) {
             $services .= <<<EUT
-
         <li class="product">
             <form method="POST" action="transac_update.php">
                 <div class="product-content"><h3>{$row['Service_name']}</h3>
                 <div class="product-thumb"><img width=200px height=200px src={$row['Haircut_pic']}></div>
                 <div class="product-info">
-                Price {$row['Cost']} 
+                Price {$row['Cost']}
                 <br></br>
                 <input type="hidden" name="Service_id" value="{$row['Service_id']}" />
                 <input type="hidden" name="type" value="add" /> 
                 <input type="hidden" name="return_url" value="{$current_url}" />
                 <div align="center"><button type="  " class="add_to_cart">Add</button></div>
                 </div></div>
+               
              </form>
         </li>
 EUT;
         }
         $services .= '</ul>';
-        echo $services;   //<input type="hidden" name="Cust_id" value="{$row['Cust_id']}" />
+        echo $services;
     }
     ?>
 </body>
