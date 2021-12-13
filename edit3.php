@@ -35,7 +35,7 @@
 
       <div class="form-group">
         <label for="Age" class="form-label">Age: </label>
-        <input type="number" max="100" min="1" style="width: 80.9em;" step="1" id="Age" name="Age" value="<?php echo $row['Name']; ?> class=" form-control">
+        <input type="number" max="100" min="1" style="width: 80.9em;" step="1" id="Age" name="Age" value="<?php echo $row['Age']; ?> class=" form-control">
       </div>
 
       <div class="form-group">

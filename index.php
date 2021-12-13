@@ -62,9 +62,146 @@ session_start();
     <button><a href="transac.php">
             <h2>transac</h2>
         </a></button>
-        <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-            <h2>troll</h2>
-        </a></button>
-</body>
+        <br></br>
+        <div class="tbl-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Consultation_id</th>
+                    <th>Employee</th>
+                    <th>Pet</th>
+                    <th>Date_of_Consultation</th>
+                    <th>Disease_Injuries</th>
+                    <th>Price</th>
+                    <th>Comments </th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        $result = mysqli_query($conn, "sELECT * FROM consultation c INNER JOIN employee e ON c.Employee_id = e.Employee_id INNER JOIN pet p ON c.Pet_id  = p.Pet_id ORDER BY Consultation_id ASC");
+                $num_rows = mysqli_num_rows($result);
+                //echo "There are currently $num_rows rows in the table<P>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>\n";
+                    echo "<td>" . $row['Consultation_id'] . "</td>";
+                    echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
+                    echo '<td>' . $row['Name'] . '</td>';
+                    echo "<td>" . $row['Date_of_Consultation'] . "</td>";
+                    echo "<td>" . $row['Disease_Injuries'] . "</td>";
+                    echo "<td>" . $row['Price'] . "</td>";
+                    echo "<td>" . $row['Comments'] . "</td>";
+                    echo "<td align='center'><a href='triggerconsult_update.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h1>Update</h1></a></td>";
+                    echo "<td align='center'><a href='delete5.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h1>Delete</h1></a></td>";
+                    echo "</tr>\n";
+                }
+                    ?>
+                            </tbody>
+        </table>
+    </div>
 
+        <div class="tbl-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Trigger_id</th>
+                    <th>Consultation_id</th>
+                    <th>Employee_id</th>
+                    <th>Pet_id</th>
+                    <th>Date_of_Consultation</th>
+                    <th>Disease_Injuries</th>
+                    <th>Price </th>
+                    <th>Comments</th>
+                    <th>Action </th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        $result = mysqli_query($conn, "sELECT * FROM triggerz ORDER BY Trigger_id ASC");
+                $num_rows = mysqli_num_rows($result);
+                //echo "There are currently $num_rows rows in the table<P>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>\n";
+                    echo "<td>" . $row['Trigger_id'] . "</td>";
+                    echo "<td>" . $row['Consultation_id'] . "</td>";
+                    echo '<td>' . $row['Employee_id'] . '</td>';
+                    echo '<td>' . $row['Pet_id'] . '</td>';
+                    echo "<td>" . $row['Date_of_Consultation'] . "</td>";
+                    echo "<td>" . $row['Disease_Injuries'] . "</td>";
+                    echo "<td>" . $row['Price'] . "</td>";
+                    echo "<td>" . $row['Comments'] . "</td>";
+                    echo "<td>" . $row['Action'] . "</td>";
+                    //echo "<td align='center'><a href='triggerconsult_update.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h3>Update</h3></a></td>";
+                    //echo "<td align='center'><a href='delete5.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h3>Delete</h3></a></td>";
+                    echo "</tr>\n";
+                }
+                    ?>
+                            </tbody>
+        </table>
+    </div>
+
+    <div class="tbl-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction_id </th>
+                    <th>Employee</th>
+                    <th>Pet</th>
+                    <th>Schedule</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        $result = mysqli_query($conn, "sELECT * FROM transaction t INNER JOIN employee e ON t.Employee_id = e.Employee_id INNER JOIN pet p ON t.Pet_id  = p.Pet_id ORDER BY Transaction_id ASC");
+                $num_rows = mysqli_num_rows($result);
+                //echo "There are currently $num_rows rows in the table<P>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>\n";
+                    echo "<td>" . $row['Transaction_id'] . "</td>";
+                    echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
+                    echo '<td>' . $row['Name'] . '</td>';
+                    echo "<td>" . $row['Schedule'] . "</td>";
+                    echo "<td align='center'><a href='triggertransac_update.php?Transaction_id=" . $row['Transaction_id'] . "' role='button'> <h1>Update</h1></a></td>";
+                    echo "<td align='center'><a href='delete6.php?Transaction_id=" . $row['Transaction_id'] . "' role='button'> <h1>Delete</h1></a></td>";
+                    echo "</tr>\n";
+                }
+                    ?>
+                            </tbody>
+        </table>
+    </div>
+
+    <div class="tbl-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Trigger_id</th>
+                    <th>Transaction_id</th>
+                    <th>Employee_id</th>
+                    <th>Pet_id</th>
+                    <th>Schedule</th>
+                    <th>Action </th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        $result = mysqli_query($conn, "sELECT * FROM triggerz2 ORDER BY Trigger_id ASC");
+                $num_rows = mysqli_num_rows($result);
+                //echo "There are currently $num_rows rows in the table<P>";
+                while ($row = mysqli_fetch_array($result)) {
+                    echo "<tr>\n";
+                    echo "<td>" . $row['Trigger_id'] . "</td>";
+                    echo "<td>" . $row['Transaction_id'] . "</td>";
+                    echo '<td>' . $row['Employee_id'] . '</td>';
+                    echo '<td>' . $row['Pet_id'] . '</td>';
+                    echo "<td>" . $row['Schedule'] . "</td>";
+                    echo "<td>" . $row['Action'] . "</td>";
+                    //echo "<td align='center'><a href='triggerconsult_update.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h3>Update</h3></a></td>";
+                    //echo "<td align='center'><a href='delete5.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h3>Delete</h3></a></td>";
+                    echo "</tr>\n";
+                }
+                    ?>
+                            </tbody>
+        </table>
+    </div>
+
+</body>
 </html>
