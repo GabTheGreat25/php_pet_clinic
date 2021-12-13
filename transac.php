@@ -102,7 +102,6 @@ include("./includes/config.php");
                 <input type="hidden" name="return_url" value="{$current_url}" />
                 <div align="center"><button type="  " class="add_to_cart">Add</button></div>
                 </div></div>
-               
              </form>
         </li>
 EUT;

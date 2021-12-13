@@ -13,10 +13,10 @@ CREATE TABLE `consultation` (
   KEY `Pet_id_fk` (`Pet_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO consultation VALUES("1","1","1","2021-12-06 17:47:00","Cataracts","400","Give medicine 3 times a day.");
-INSERT INTO consultation VALUES("2","2","2","2021-12-29 18:00:29","Ear_Infections","600","Clean ears twice a day");
-INSERT INTO consultation VALUES("3","5","1","2021-12-07 11:20:00","Heartworm","2500","Need exactly 8 hours of sleep.");
-INSERT INTO consultation VALUES("4","5","2","2021-12-07 14:06:00","Fleas_and_ticks","900","Clean ");
+INSERT INTO consultation VALUES("1","1","1","2021-12-10 13:33:00","Cataracts","200","Need exactly 8 hours of sleep.");
+INSERT INTO consultation VALUES("2","1","1","2021-12-10 13:33:00","Ear_Infections","1200","Clean ears twice a day");
+INSERT INTO consultation VALUES("3","3","2","2021-12-10 13:34:00","Heartworm","2000","Need exactly 8 hours of sleep.");
+INSERT INTO consultation VALUES("4","5","3","2021-12-29 13:34:58","Obesity","1000","Feed Less");
 
 
 
@@ -86,11 +86,11 @@ CREATE TABLE `pet` (
   `Cust_id` int(45) NOT NULL,
   PRIMARY KEY (`Pet_id`),
   KEY `Cust_id_fk` (`Cust_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO pet VALUES("1","Basha","7","Female","Daschund","././upload3/dog.jpg","1");
-INSERT INTO pet VALUES("2","Coby","2","Male","Scheweenie","././upload3/247572617_877300003175914_7726265633430797562_n.jpg","4");
-INSERT INTO pet VALUES("4","adriel","7","Male","Daschund","././upload3/adriel.png","4");
+INSERT INTO pet VALUES("1","Basha","4","Male","Daschund","././upload3/dog3.jpg","1");
+INSERT INTO pet VALUES("2","Brody","6","Male","Shitzu","././upload3/Eyes_Cleaning.jpg","2");
+INSERT INTO pet VALUES("3","Coby","2","Male","Scheweenie","././upload3/nail_clip.jpg","4");
 
 
 
@@ -122,17 +122,11 @@ CREATE TABLE `transaction` (
   `Transaction_id` int(11) NOT NULL AUTO_INCREMENT,
   `Employee_id` int(11) NOT NULL,
   `Schedule` datetime DEFAULT NULL,
-  PRIMARY KEY (`Transaction_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`Transaction_id`),
+  KEY `basta_fkk` (`Employee_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO transaction VALUES("1","3","2021-12-05 20:54:38");
-INSERT INTO transaction VALUES("2","3","2021-12-05 20:54:43");
-INSERT INTO transaction VALUES("3","1","2021-12-06 13:47:18");
-INSERT INTO transaction VALUES("4","1","2021-12-06 13:47:18");
-INSERT INTO transaction VALUES("5","5","2021-12-07 11:23:16");
-INSERT INTO transaction VALUES("6","5","2021-12-07 11:23:16");
-INSERT INTO transaction VALUES("7","5","2021-12-07 11:23:16");
-INSERT INTO transaction VALUES("8","5","2021-12-07 11:23:16");
+INSERT INTO transaction VALUES("1","1","2021-12-11 00:08:12");
 
 
 
@@ -141,29 +135,14 @@ DROP TABLE transaction_line;
 CREATE TABLE `transaction_line` (
   `Transaction_id` int(11) NOT NULL,
   `Service_id` int(11) NOT NULL,
-  PRIMARY KEY (`Transaction_id`,`Service_id`),
-  KEY `basta_fk` (`Transaction_id`,`Service_id`) USING BTREE
+  `Pet_id` int(11) NOT NULL,
+  PRIMARY KEY (`Transaction_id`,`Service_id`) USING BTREE,
+  KEY `fkk` (`Service_id`,`Pet_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO transaction_line VALUES("1","1");
-INSERT INTO transaction_line VALUES("2","1");
-INSERT INTO transaction_line VALUES("3","1");
-INSERT INTO transaction_line VALUES("4","6");
-INSERT INTO transaction_line VALUES("5","1");
-INSERT INTO transaction_line VALUES("6","6");
-INSERT INTO transaction_line VALUES("7","12");
-INSERT INTO transaction_line VALUES("8","11");
-
-
-
-DROP TABLE try;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`` SQL SECURITY DEFINER VIEW `try` AS select `cu`.`First_name` AS `First_name`,`cu`.`Last_name` AS `Last_name`,`c`.`Consultation_id` AS `Consultation_id`,`c`.`Price` AS `Price` from ((`consultation` `c` join `pet` `p` on(`c`.`Pet_id` = `p`.`Pet_id`)) join `customer` `cu` on(`p`.`Cust_id` = `cu`.`Cust_id`));
-
-INSERT INTO try VALUES("Gab","Mendoza","1","400");
-INSERT INTO try VALUES("Gab","Gab","2","600");
-INSERT INTO try VALUES("Gab","Mendoza","3","2500");
-INSERT INTO try VALUES("Gab","Gab","4","900");
+INSERT INTO transaction_line VALUES("1","1","1");
+INSERT INTO transaction_line VALUES("1","6","1");
+INSERT INTO transaction_line VALUES("1","7","1");
 
 
 

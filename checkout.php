@@ -11,22 +11,22 @@ if (!isset($_SESSION['Employee_id'])) {
 else {
   mysqli_query($conn, 'START TRANSACTION');
 
-  $querry = 'INSERT INTO transaction(Employee_id,Schedule) VALUES (?, NOW())';
+  $querry = 'INSERT INTO transaction(Employee_id,Pet_id,Schedule) VALUES (?, ?,NOW())';
   $Employee_id =  $_SESSION['Employee_id'];
+  $Pet_id = rand(1,3);
   $flag = true;
 
   $stmt1 = mysqli_prepare($conn, $querry);
-  mysqli_stmt_bind_param($stmt1, 'i', $Employee_id);
+  mysqli_stmt_bind_param($stmt1, 'ii', $Employee_id, $Pet_id);
   mysqli_stmt_execute($stmt1);
 
   $Transaction_id = mysqli_insert_id($conn);
-  $querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id, Pet_id)VALUES (?, ?, ?)';
-  //$querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id)VALUES (?, ?)';
-  $Pet_id = rand(1,3);
+  //$querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id, Pet_id)VALUES (?, ?, ?)';
+  $querry2 = 'INSERT INTO transaction_line(Transaction_id ,Service_id)VALUES (?, ?)';
+  //$Pet_id = rand(1,3);
   $stmt2 = mysqli_prepare($conn, $querry2);
-  //mysqli_stmt_bind_param($stmt2, 'ii', $Transaction_id, $Service_id);
-  mysqli_stmt_bind_param($stmt2, 'iii', $Transaction_id, $Service_id, $Pet_id);
-
+  mysqli_stmt_bind_param($stmt2, 'ii', $Transaction_id, $Service_id);
+  //mysqli_stmt_bind_param($stmt2, 'iii', $Transaction_id, $Service_id, $Pet_id);
   // print_r($_SESSION["cart_products"]);
   foreach ($_SESSION["cart"] as $cart_itm) {
     //set variables to use in content below
@@ -38,7 +38,6 @@ else {
     //$Pet_id = $cart_itm["Pet_id"];
     //$Cust_id = $cart_itm["Cust_id"];
     mysqli_stmt_execute($stmt2);
-
     if ((mysqli_stmt_affected_rows($stmt2) > 0)) {
 
       if ($flag == true) {
