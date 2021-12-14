@@ -44,25 +44,7 @@
           ?>
         </select>
       </div>
-
-     
-      <div class="form-group">
-        <label for="Pet_id" class="form-label">Pet_Name: </label>
-        <select name="Pet_id" id="Pet_id" style="width: 92.5em;" class="form-select form-select-sm">
-          <?php
-
-          $sql = "sELECT Pet_id,Name FROM pet where Pet_id  <>" . $row['Pet_id'];
-          $results = mysqli_query($conn, $sql);
-
-          echo '<option value=' . $row['Pet_id'] . '>' . $row['Name'] . '</option>';
-
-          while ($rows = mysqli_fetch_assoc($results)) {
-            echo '<option value=' . $rows['Pet_id'] . '>' . $rows['Name'] . '</option>';
-          } // kaya 2 querry kasi una pinakita yung laman tapos pangalawa tinawag ulit para pumili ka kaya 2 beses tinawag
-          ?>
-        </select>
-      </div>
-
+      
       <div class="form-group">
         <label for="Schedule" class="form-label">Schedule: </label>
         <input type='text' id='Schedule' name='Schedule' value="<?php echo $row['Schedule']; ?>" class="form-control">

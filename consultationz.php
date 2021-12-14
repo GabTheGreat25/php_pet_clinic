@@ -53,30 +53,70 @@ session_start();
                 ?>
         </button>
     </header>
-<form method="POST">
-<input type="number" max="100" min="1" style="width: 10em;"  step="1" name="find">
-<input type="submit" value="Search Pet Id">
-</form>
+    <div class="form-group"> 
+  <form align="center" action="" method="GET">
+    <label  for="">Input Pet Name</label>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="text" style="text-align:center" name="Name" value="<?php if(isset($_GET['Name'])){echo $_GET['Name'];} ?>" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <br>
+ <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
 
     <?php
-     //include "includes/config.php";
-    if(isset($_POST['find'])){
-        require_once "search.php";
-        if(count($results) > 0){
-            foreach ($results as $row){
-                //echo "<tr>\n";
-                echo "<div>" . $row['Name'] . "</div>";
-                echo "<div>" . $row['Date_of_Consultation'] . "</div>";
-                echo "<div>" . $row['Disease_Injuries'] . "</div>";
-                echo "<div>" . $row['Comments'] . "</div>";
-                echo "<br>";
-               //echo "</tr>\n";
-            }
-        } else { 
-            echo  "<td>No Results Found.</td>";
-        }
-    }
-    ?>
+     $conn = mysqli_connect("localhost","root","","mydb_gabz");
+
+if(isset($_GET['Name']))
+{
+    $Name = $_GET['Name'];
+
+            ?>
+
+           <div>
+<table>
+<thead>
+
+<tr>
+<th>Disease_Injuries</th>
+<th>Price</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+
+<?php 
+$result = mysqli_query( $conn,"select p.Pet_pic, p.Breed, p.Name, CONCAT(e.Last_name,',',e.First_name) AS vet, c.Disease_Injuries, c.Price, c.Date_of_Consultation, c.Comments FROM pet p inner join employee e inner join consultation c on p.Pet_id  = c.Pet_id AND e.Employee_id  = c.Employee_id WHERE p.Name='$Name' or p.Pet_id ='$Name' ");
+$num_rows = mysqli_num_rows( $result );
+//echo "There are currently $num_rows rows in the table<P>";
+while ($row = mysqli_fetch_array($result)) {  
+echo "<tr>\n";
+echo "<td>".$row['Disease_Injuries']."</td>";
+echo "<td>".$row['Price']."</td>";
+echo "<td>".$row['Comments']."</td>";
+echo "</tr>\n"; 
+} 
+mysqli_free_result($result);
+mysqli_close( $conn );
+?>
+</tbody>
+</table>
+</div>
+                                                <?php
+                                            }
+                                    
+                                        else
+                                        {
+                                            echo "No Record Found";
+                                        }
+                              
+                                ?>
+                                </div>
+                                </div>
+                                </div>
 </body>
 
 </html>

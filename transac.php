@@ -13,6 +13,41 @@ include("./includes/config.php");
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION["carts"]) && count($_SESSION["carts"]) > 0) {
+        echo '<div class="cart-view-table-back" id="view-cart">'; //first table kaya ito inuna at di pwede ilagay sa huli kasi di lalabas
+        echo '<h3>Your Choosen Pets</h3>';
+        echo '<form method="POST" action="try.php">'; //gumamit post
+        echo '<table width="100%"  cellpadding="6" cellspacing="0">';
+        echo '<tbody>';
+  
+        foreach ($_SESSION["carts"] as $cart_itm) {
+            //var_dump($cart_itm);
+            //exit();
+           $Name = $cart_itm["Pet_name"];
+            $Pet_id = $cart_itm["Pet_id"];
+            $bg_color = ($b++ % 2 == 1) ? 'odd' : 'even'; //zebra stripe
+            echo '<tr class="' . $bg_color . '">';
+            echo '<td>' . $Name .'</td>';
+            //echo '<td><input type="text" value="'.$Cust_id.'"></td>';
+            echo '<td><input type="checkbox" name="remove_code[]" value="' . $Pet_id . '" /> Remove</td>';
+            echo '</tr>';
+            //$subtotal = ($product_price * $product_qty);
+            //$total = ($total + $subtotal);
+        }
+        echo '<td colspan="4">';
+        echo '<button type="submit">Update</button>';
+        echo '</td>';
+        echo '</tbody>';
+        echo '</table>';
+
+        $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        echo '<input type="hidden" name="return_url" value="' . $current_url . '" />';
+        echo '</form>';
+        echo '</div>';
+    }
+    ?>
+
     <strong>
         <h1 align="center">Types Of Services</h1>
     </strong>
@@ -58,29 +93,29 @@ include("./includes/config.php");
     ?>
 
 <?php
-   // $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-  //  $results = mysqli_query($conn, "select* from pet");
-  //  if ($results) {
-   //     $service = '<ul align="center" class="products">';
-   //     while ($row = mysqli_fetch_array($results)) {
-    //        $service .= <<<EUT
-    //    <li class="product">
-     //       <form method="POST" action="try.php">
-    //            <div  align="center" class="product-info">
-     //           {$row['Name']}
-     //           <br></br>
-      //          <input type="hidden" name="Pet_id" value="{$row['Pet_id']}" />
-      //          <input type="hidden" name="type" value="add" /> 
-      //          <input type="hidden" name="return_url" value="{$current_url}" />
-      //          <div align="center"><button type="  " class="add_to_cart">Pick A Pet</button></div>
-      //          </div></div>
-      //       </form>
-      //  </li>
-//EUT;
-      //  }
-     //   $service .= '</ul>';
-     //   echo $service;
-   // }
+    $current_url = urlencode($url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    $results = mysqli_query($conn, "select* from pet");
+    if ($results) {
+        $service = '<ul align="center" class="products">';
+        while ($row = mysqli_fetch_array($results)) {
+            $service .= <<<EUT
+        <li class="product">
+            <form method="POST" action="try.php">
+                <div  align="center" class="product-info">
+                {$row['Name']}
+                <br></br>
+              <input type="hidden" name="Pet_id" value="{$row['Pet_id']}" />
+                <input type="hidden" name="type" value="add" /> 
+                <input type="hidden" name="return_url" value="{$current_url}" />
+                <div align="center"><button type="  " class="add_to_cart">Pick A Pet</button></div>
+                </div></div>
+             </form>
+        </li>
+EUT;
+        }
+        $service .= '</ul>';
+        echo $service;
+    }
     ?>
 
     <?php

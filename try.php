@@ -27,16 +27,16 @@ while ($rows = mysqli_fetch_array($results)) {
   $new_product["Pet_name"] = $rows['Name'];
   //var_dump($new_product);
   // exit();
-  if (isset($_SESSION["cart"])) {  //if session var already exist
-    if (isset($_SESSION["cart"][$new_product['Pet_id']])) //check item exist in products array
+  if (isset($_SESSION["carts"])) {  //if session var already exist
+    if (isset($_SESSION["carts"][$new_product['Pet_id']])) //check item exist in products array
     {
-      unset($_SESSION["cart"][$new_product['Pet_id']]); //unset old array item
-      var_dump($_SESSION["cart"]);
+      unset($_SESSION["carts"][$new_product['Pet_id']]); //unset old array item
+      var_dump($_SESSION["carts"]);
       exit(); //buburahin pag clinick mo uli
     }
   }
 
-  $_SESSION["cart"][$new_product['Pet_id']] = $new_product; //update or create product session with new item  
+  $_SESSION["carts"][$new_product['Pet_id']] = $new_product; //update or create product session with new item  
   //var_dump($_SESSION["cart_products"]);
   //exit();
 }
@@ -63,7 +63,7 @@ if (isset($_POST["remove_code"])) {
   if (isset($_POST["remove_code"]) && is_array($_POST["remove_code"])) {
     foreach ($_POST["remove_code"] as $key) {
       echo $key;
-      unset($_SESSION["cart"][$key]);
+      unset($_SESSION["carts"][$key]);
     }
   }
 }

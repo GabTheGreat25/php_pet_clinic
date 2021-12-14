@@ -63,6 +63,7 @@ session_start();
             <h2>transac</h2>
         </a></button>
         <br></br>
+        
         <div class="tbl-container">
         <table>
             <thead>
@@ -145,20 +146,18 @@ session_start();
                 <tr>
                     <th>Transaction_id </th>
                     <th>Employee</th>
-                    <th>Pet</th>
                     <th>Schedule</th>
                 </tr>
             </thead>
             <tbody>
         <?php
-        $result = mysqli_query($conn, "sELECT * FROM transaction t INNER JOIN employee e ON t.Employee_id = e.Employee_id INNER JOIN pet p ON t.Pet_id  = p.Pet_id ORDER BY Transaction_id ASC");
+        $result = mysqli_query($conn, "sELECT * FROM transaction t INNER JOIN employee e ON t.Employee_id = e.Employee_id ORDER BY Transaction_id ASC");
                 $num_rows = mysqli_num_rows($result);
                 //echo "There are currently $num_rows rows in the table<P>";
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>\n";
                     echo "<td>" . $row['Transaction_id'] . "</td>";
                     echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
-                    echo '<td>' . $row['Name'] . '</td>';
                     echo "<td>" . $row['Schedule'] . "</td>";
                     echo "<td align='center'><a href='triggertransac_update.php?Transaction_id=" . $row['Transaction_id'] . "' role='button'> <h1>Update</h1></a></td>";
                     echo "<td align='center'><a href='delete6.php?Transaction_id=" . $row['Transaction_id'] . "' role='button'> <h1>Delete</h1></a></td>";
@@ -176,7 +175,6 @@ session_start();
                     <th>Trigger_id</th>
                     <th>Transaction_id</th>
                     <th>Employee_id</th>
-                    <th>Pet_id</th>
                     <th>Schedule</th>
                     <th>Action </th>
                 </tr>
@@ -191,7 +189,6 @@ session_start();
                     echo "<td>" . $row['Trigger_id'] . "</td>";
                     echo "<td>" . $row['Transaction_id'] . "</td>";
                     echo '<td>' . $row['Employee_id'] . '</td>';
-                    echo '<td>' . $row['Pet_id'] . '</td>';
                     echo "<td>" . $row['Schedule'] . "</td>";
                     echo "<td>" . $row['Action'] . "</td>";
                     //echo "<td align='center'><a href='triggerconsult_update.php?Consultation_id=" . $row['Consultation_id'] . "' role='button'> <h3>Update</h3></a></td>";

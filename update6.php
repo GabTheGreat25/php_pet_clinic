@@ -23,10 +23,10 @@
         include "includes/config.php";
         $Transaction_id = $_POST['Transaction_id'];
         $Employee_id = $_POST['Employee_id'];
-        $Pet_id = $_POST['Pet_id'];
+        //$Pet_id = $_POST['Pet_id'];
         $Schedule = $_POST['Schedule'];
         
-            $sql = "UPDATE transaction set Transaction_id='$Transaction_id', Employee_id='$Employee_id', Pet_id='$Pet_id', Schedule='$Schedule' WHERE Transaction_id=" . $_POST['Transaction_id'];
+            $sql = "UPDATE transaction set Transaction_id='$Transaction_id', Employee_id='$Employee_id', Schedule='$Schedule' WHERE Transaction_id=" . $_POST['Transaction_id'];
             echo $sql;
             $result = mysqli_query($conn, $sql);
             if ($result) {
