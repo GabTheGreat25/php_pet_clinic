@@ -59,7 +59,7 @@ session_start();
     <button><a href="import.php">
             <h2>Import</h2>
         </a></button>
-    <button><a href="transac.php">
+    <button><a href="check.php">
             <h2>transac</h2>
         </a></button>
         <br></br>

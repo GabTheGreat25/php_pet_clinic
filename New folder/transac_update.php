@@ -14,32 +14,31 @@ if (isset($_POST["type"]) && $_POST["type"] == 'add') {
   //var_dump($new_product);
   //exit(); 
   //we need to get product name and price from database.
-  $sql2 = "select * from pet where Pet_id = " . $new_product['Pet_id'];
-
-  $results = mysqli_query($conn, $sql2);
+  $sql = "select * from service where Service_id = " . $new_product['Service_id'];
+  $result = mysqli_query($conn, $sql);
   //echo $result;
-  $num_row = mysqli_num_rows($results);
+  $num_rows = mysqli_num_rows($result);
   //echo "There are currently $num_rows row(s) in the table<P>";
   //echo "<table border=1>\n"; anu toh haha
-
-while ($rows = mysqli_fetch_array($results)) {
-  //fetch product name, price from db and add to new_product array
-  $new_product["Pet_name"] = $rows['Name'];
-  //var_dump($new_product);
-  // exit();
-  if (isset($_SESSION["carts"])) {  //if session var already exist
-    if (isset($_SESSION["carts"][$new_product['Pet_id']])) //check item exist in products array
-    {
-      unset($_SESSION["carts"][$new_product['Pet_id']]); //unset old array item
-      var_dump($_SESSION["carts"]);
-      exit(); //buburahin pag clinick mo uli
+  while ($row = mysqli_fetch_array($result)) {
+    //fetch product name, price from db and add to new_product array
+    $new_product["Name"] = $row['Service_name'];
+    $new_product["Price"] = $row['Cost'];
+    //var_dump($new_product);
+    // exit();
+    if (isset($_SESSION["cart"])) {  //if session var already exist
+      if (isset($_SESSION["cart"][$new_product['Service_id']])) //check item exist in products array
+      {
+        unset($_SESSION["cart"][$new_product['Service_id']]); //unset old array item
+        var_dump($_SESSION["cart"]);
+        exit(); //buburahin pag clinick mo uli
+      }
     }
-  }
 
-  $_SESSION["carts"][$new_product['Pet_id']] = $new_product; //update or create product session with new item  
-  //var_dump($_SESSION["cart_products"]);
-  //exit();
-}
+    $_SESSION["cart"][$new_product['Service_id']] = $new_product; //update or create product session with new item  
+    //var_dump($_SESSION["cart_products"]);
+    //exit();
+  }
 }
 
 //update or remove items 
@@ -63,7 +62,7 @@ if (isset($_POST["remove_code"])) {
   if (isset($_POST["remove_code"]) && is_array($_POST["remove_code"])) {
     foreach ($_POST["remove_code"] as $key) {
       echo $key;
-      unset($_SESSION["carts"][$key]);
+      unset($_SESSION["cart"][$key]);
     }
   }
 }
@@ -73,5 +72,5 @@ print_r($_SESSION);
 echo "</pre>";
 //back to return url
 //$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
-echo '<a href="checkkk.php" class="button">Balik sa Transac</a>';
+echo '<a href="transac.php" class="button">Balik sa Transac</a>';
 //header('Location:'.$return_url);
