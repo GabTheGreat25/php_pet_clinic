@@ -1,0 +1,35 @@
+* {
+    font-size: 13px;
+    font-family: 'Times New Roman';
+}
+
+td,
+th,
+tr,
+table {
+    border-top: 5px solid black;
+    border-collapse: collapse;
+}
+
+.centered {
+    text-align: center;
+    align-content: center;
+}
+
+.ticket {
+    width: 155px;
+    max-width: 155px;
+    width: 60vw;
+    height: 50vh;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+}
+
+img {
+    max-width: inherit;
+    width: inherit;
+}
+
+    
+    

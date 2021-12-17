@@ -107,12 +107,6 @@ mysqli_close( $conn );
 </div>
                                                 <?php
                                             }
-                                    
-                                        else
-                                        {
-                                            echo "No Record Found";
-                                        }
-                              
                                 ?>
                                 </div>
                                 </div>

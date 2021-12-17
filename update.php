@@ -61,7 +61,7 @@
             // if everything is ok, try to upload file
         } elseif (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo nl2br("The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.\n");
-            $sql = "UPDATE customer set First_name='$fname',Last_name='$lname',Phone_number='$phone',Cust_pic='$target_file' WHERE Cust_id=" . $_POST['Cust_id'];
+            $sql = "UPDATE customer set first_name='$fname',last_name='$lname',Phone_number='$phone',Cust_pic='$target_file' WHERE Cust_id=" . $_POST['Cust_id'];
             echo $sql;
             $result = mysqli_query($conn, $sql);
             if ($result) {

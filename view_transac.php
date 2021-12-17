@@ -57,9 +57,6 @@ include("./includes/config.php");
                                         }
                                         ?>
                                         <tr>
-                                                <td colspan="5"><span style="float:right;text-align: right;">Amount Payable : <?php echo sprintf("%01.2f", $total); ?></span></td>
-                                        </tr>
-                                        <tr>
                                                 <td colspan="5"><a href="transac.php" class="button">Add More Services</a>
                                                         <button type="submit">Update</button>
                                                 </td>

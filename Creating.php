@@ -92,7 +92,7 @@
 
             echo nl2br("The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.\n");
 
-            $sql = "INSERT INTO customer(First_name,Last_name,Phone_number,Cust_pic) VALUES ('$fname','$lname','$phone','$target_file')";
+            $sql = "INSERT INTO customer(first_name,last_name,Phone_number,Cust_pic) VALUES ('$fname','$lname','$phone','$target_file')";
             echo $sql;
 
             $result = @mysqli_query($conn, $sql);
