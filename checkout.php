@@ -63,6 +63,9 @@ unset($_SESSION['carts']);
 unset($_SESSION['cart']);
 }
 
+echo '<p class="centered">YOUR RECEIPT
+                <br>Pet Clinic<br></p>';
+
 $Delimeter = 'CALL grooming5('.$Transaction_id.')';
           $start = mysqli_query($conn, $Delimeter);
 while ($rows = mysqli_fetch_array($start))
@@ -70,8 +73,6 @@ while ($rows = mysqli_fetch_array($start))
 
           echo '<link rel="stylesheet" href="./resibo/style.css">
 <div class="ticket">
-            <p class="centered">YOUR RECEIPT
-                <br>Pet Clinic<br></p>
             <table>
                 <tbody>
                 <thead>
