@@ -19,6 +19,7 @@ if (!isset($_SESSION['Employee_id'])) {
 //print_r($_SESSION);
 //try
 else {
+  session_start();
   mysqli_query($conn, 'START TRANSACTION');
 
   $querry = 'INSERT INTO transaction(Employee_id,Schedule) VALUES (?,NOW())';
@@ -66,7 +67,7 @@ unset($_SESSION['cart']);
 echo '<p class="centered">YOUR RECEIPT
                 <br>Pet Clinic<br></p>';
 
-$Delimeter = 'CALL grooming5('.$Transaction_id.')';
+$Delimeter = 'CALL grooming2('.$Transaction_id.')';
           $start = mysqli_query($conn, $Delimeter);
 while ($rows = mysqli_fetch_array($start))
           {
@@ -98,9 +99,9 @@ while ($rows = mysqli_fetch_array($start))
                 </tbody>
             </table>
             <br></br>
-        <button><strong>Print</strong></button>
         </div>';
           }
+          echo '<p class="centered"><button><strong>Print</strong></button></p>';
 ?>
 </body>
 </html>

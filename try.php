@@ -75,3 +75,4 @@ echo "</pre>";
 //$return_url = (isset($_POST["return_url"]))?urldecode($_POST["return_url"]):''; //return url
 echo '<a href="checkkk.php" class="button">Balik sa Transac</a>';
 //header('Location:'.$return_url);
+//edited in nano
