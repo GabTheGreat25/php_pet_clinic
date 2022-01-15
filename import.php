@@ -58,7 +58,7 @@ if(isset($_POST["import"]))
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
  </head>  
- <body>  
+ <body style="background-color:#aaa69d">  
   <br /><br />  
   <div class="container" style="width:700px;">  
    <h3 align="center">Import your File</h3>  
@@ -68,7 +68,7 @@ if(isset($_POST["import"]))
     <p><label>Select Sql File</label>
     <input type="file" name="database" /></p>
     <br />
-    <input type="submit" name="import" class="btn btn-info" value="Import" />
+    <input type="submit" name="import" class="btn btn-success" value="Import" />
    </form>
   </div>  
  </body>  

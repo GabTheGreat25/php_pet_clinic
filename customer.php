@@ -78,8 +78,8 @@ session_start();
                 while ($row = mysqli_fetch_array($result)) {
                     echo "<tr>\n";
                     echo "<td>" . $row['Cust_id'] . "</td>";
-                    echo "<td>" . $row['First_name'] . "</td>";
-                    echo "<td>" . $row['Last_name'] . "</td>";
+                    echo "<td>" . $row['first_name'] . "</td>";
+                    echo "<td>" . $row['last_name'] . "</td>";
                     echo "<td>" . $row['Phone_number'] . "</td>";
                     echo "<td><img width = '100px' height = '100px' src =" . $row['Cust_pic'] . "></td>";
                     echo "<td align='center'><a href='edit.php?Cust_id=" . $row['Cust_id'] . "' role='button'> <h1>Update</h1></a></td>";

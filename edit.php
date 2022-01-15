@@ -30,12 +30,12 @@
 
       <div class="form-group">
         <label for="fname" class="form-label">First_Name: </label>
-        <input type='text' id='fname' name='fname' value="<?php echo $row['First_name']; ?>" class="form-control">
+        <input type='text' id='fname' name='fname' value="<?php echo $row['first_name']; ?>" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="lname" class="form-label">Last_Name: </label>
-        <input type='text' id='lname' name='lname' value="<?php echo $row['Last_name']; ?>" class="form-control">
+        <input type='text' id='lname' name='lname' value="<?php echo $row['last_name']; ?>" class="form-control">
       </div>
 
       <div class="form-group">

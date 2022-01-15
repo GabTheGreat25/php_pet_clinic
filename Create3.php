@@ -39,7 +39,6 @@
         </label>
       </div>
 
-
       <div class="form-group">
         <label for="Breed" class="form-label">Breed: </label>
         <input type="text" id="Breed" name="Breed" class="form-control">

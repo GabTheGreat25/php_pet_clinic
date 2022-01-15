@@ -86,7 +86,7 @@ session_start();
                         echo "<td>" . $row['Age'] . "</td>";
                         echo "<td>" . $row['Sex'] . "</td>";
                         echo "<td>" . $row['Breed'] . "</td>";
-                        echo '<td>' . $row['Last_name'] . ',' . $row['First_name'] . '</td>';
+                        echo '<td>' . $row['last_name'] . ',' . $row['first_name'] . '</td>';
                         echo "<td><img width = '100px' height = '100px' src =" . $row['Pet_pic'] . "></td>";
                         echo "<td align='center'><a href='edit3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Update</h1></a></td>";
                         echo "<td align='center'><a href='delete3.php?Pet_id=" . $row['Pet_id'] . "' role='button'> <h1>Delete</h1></a></td>";
