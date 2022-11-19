@@ -28,16 +28,16 @@
         $Disease_Injuries = $_POST['Disease_Injuries'];
         $Price = $_POST['Price'];
         $Comments = $_POST['Comments'];
-        
-            $sql = "UPDATE consultation set Consultation_id='$Consultation_id', Employee_id='$Employee_id', Pet_id='$Pet_id', Date_of_Consultation='$Date_of_Consultation', Disease_Injuries='$Disease_Injuries', Price='$Price', Comments='$Comments' WHERE Consultation_id=" . $_POST['Consultation_id'];
-            echo $sql;
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo '<div style="font-size:50;color:blue">CONSULTATION UPDATED! </div>';
-            } else {
-                echo mysqli_error();
-            }
+
+        $sql = "UPDATE consultation set Consultation_id='$Consultation_id', Employee_id='$Employee_id', Pet_id='$Pet_id', Date_of_Consultation='$Date_of_Consultation', Disease_Injuries='$Disease_Injuries', Price='$Price', Comments='$Comments' WHERE Consultation_id=" . $_POST['Consultation_id'];
+        echo $sql;
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo '<div style="font-size:50;color:blue">CONSULTATION UPDATED! </div>';
+        } else {
+            echo mysqli_error($conn);
         }
+    }
     ?>
     <a href="index.php" role="button">
         <h4>Back</h4>

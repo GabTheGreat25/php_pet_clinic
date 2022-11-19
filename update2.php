@@ -67,7 +67,7 @@
             if ($result) {
                 echo '<div style="font-size:50;color:blue">EMPLOYEE UPDATED! </div>';
             } else {
-                echo mysqli_error();
+                echo mysqli_error($conn);
             }
         } else {
             echo "Sorry, there was an error uploading your file.";

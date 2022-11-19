@@ -92,7 +92,7 @@
             if ($result) {
                 header('Location: service.php');
             } else {
-                echo mysqli_error();
+                echo mysqli_error($conn);
             }
         } else {
             foreach ($errors as $msg) { // Print each error.

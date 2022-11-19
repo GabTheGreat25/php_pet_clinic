@@ -18,7 +18,7 @@
 		//echo '<div style="font-size:50;color:blue">CUSTOMER DELETED! </div>';
 		header('location:customer.php');
 	} else {
-		echo mysqli_error();
+		echo mysqli_error($conn);
 	}
 	//mysqli_free_result($result);
 	mysqli_close($conn);

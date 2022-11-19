@@ -25,16 +25,16 @@
         $Employee_id = $_POST['Employee_id'];
         //$Pet_id = $_POST['Pet_id'];
         $Schedule = $_POST['Schedule'];
-        
-            $sql = "UPDATE transaction set Transaction_id='$Transaction_id', Employee_id='$Employee_id', Schedule='$Schedule' WHERE Transaction_id=" . $_POST['Transaction_id'];
-            echo $sql;
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo '<div style="font-size:50;color:blue">TRANSACTION UPDATED! </div>';
-            } else {
-                echo mysqli_error();
-            }
+
+        $sql = "UPDATE transaction set Transaction_id='$Transaction_id', Employee_id='$Employee_id', Schedule='$Schedule' WHERE Transaction_id=" . $_POST['Transaction_id'];
+        echo $sql;
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            echo '<div style="font-size:50;color:blue">TRANSACTION UPDATED! </div>';
+        } else {
+            echo mysqli_error($conn);
         }
+    }
     ?>
     <a href="index.php" role="button">
         <h4>Back</h4>

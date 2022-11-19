@@ -122,7 +122,7 @@
             if ($result) {
                 header('Location: login_page.php');
             } else {
-                echo mysqli_error();
+                echo mysqli_error($conn);
             }
         } else {
             foreach ($errors as $msg) { // Print each error.

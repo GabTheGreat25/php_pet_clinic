@@ -18,7 +18,7 @@
 		//echo '<div style="font-size:50;color:blue">SERVICE DELETED! </div>';
 		header('location:index.php');
 	} else {
-		echo mysqli_error();
+		echo mysqli_error($conn);
 	}
 	//mysqli_free_result($result);
 	mysqli_close($conn);

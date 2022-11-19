@@ -120,7 +120,7 @@
             if ($result) {
                 header('Location: pets.php');
             } else {
-                echo mysqli_error();
+                echo mysqli_error($conn);
             }
         } else {
             foreach ($errors as $msg) { // Print each error.

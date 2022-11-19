@@ -100,7 +100,7 @@
             if ($result) {
                 header('Location: customer.php');
             } else {
-                echo mysqli_error();
+                echo mysqli_error($conn);
             }
         } else {
             foreach ($errors as $msg) { // Print each error.

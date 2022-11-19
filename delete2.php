@@ -18,7 +18,7 @@
 		//echo '<div style="font-size:50;color:blue">Employee DELETED! </div>';
 		header('location:employee.php');
 	} else {
-		echo mysqli_error();
+		echo mysqli_error($conn);
 	}
 	//mysqli_free_result($result);
 	mysqli_close($conn);
